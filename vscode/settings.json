@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Slaking.sln"
+    "dotnet.defaultSolution": "senier_project.sln"
 }
