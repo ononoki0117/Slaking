@@ -74,3 +74,6 @@ crashlytics-build.properties
 # Assembly file for ios 
 /Assets/MMD4Mecanim/Plugins/MMD4MecanimBulletPhysics/iOS/libBulletPhysics.a
 Assets/MMD4Mecanim/Plugins/MMD4MecanimBulletPhysics/iOS/libBulletPhysics.a.meta
+
+# No more DS_Store
+.DS_Store
