@@ -62,7 +62,6 @@ public class Metronome : MonoBehaviour
                     accent = 1;
                     amp *= 2.0f;
                 }
-                GetComponent<AudioSource>().Play();
                 Debug.Log("Tick: " + accent + "/" + signatureHi);
             }
             phase += amp * 0.3f;
