@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
-public class Metronome : MonoBehaviour
+public class VanilaMetronome : MonoBehaviour
 {
     public double bpm = 60F;
     public float gain = 0.5f;
