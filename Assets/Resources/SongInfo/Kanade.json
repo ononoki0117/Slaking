@@ -1,0 +1,62 @@
+{
+    "title" : "Kanade.mp3",
+    "BPM" : 76,
+    "noteCount" : 60,
+    "signatureHI" : 4,
+    "signatureLO" : 4,
+    "offset" : 1301,
+    "artist" : "Kera Kera",
+    "difficulty" : "Easy",
+    "source" : null,
+
+  "spectator": [
+    {
+      "kind": "keydown",
+      "position": 1301,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 4601,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 6020,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 8000,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 10000,
+      "duration": null
+    },
+    {
+      "kind": "keyup",
+      "position": 12000,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 14000,
+      "duration": null
+    },
+    {
+      "kind": "keydown",
+      "position": 16001,
+      "duration": null
+    }
+  ],
+
+    "actor" : [
+        {
+            "kind" : "keydown",
+            "position" : 6301,
+            "duration" : null
+        }  
+    ]
+}
