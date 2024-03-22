@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TitleSceneManager : MonoBehaviour
+public class InitGame : MonoBehaviour
 {
     private void Awake()
     {
@@ -10,5 +10,6 @@ public class TitleSceneManager : MonoBehaviour
         {
             Display.displays[1].Activate();
         }
+        GameManager.STATE = CURRENT_STATE.TITLE;
     }
 }

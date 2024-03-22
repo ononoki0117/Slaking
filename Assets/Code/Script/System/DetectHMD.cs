@@ -1,17 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.XR;
+internal static class HMDDetector
+{
+    public static bool isPresent()
+    {
+        var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
+        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+        foreach (var xrDisplay in xrDisplaySubsystems)
+        {
+            if (xrDisplay.running)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 
 /// <summary>
 /// 착용시에 게임 진행, 착용하지 않은 상태면 계속 타이틀 스크린에 있도록 하고 싶음...
 /// </summary>
 public class DetectHMD : MonoBehaviour
 {
-    
-
+    private bool IsFoundHMD = false;
 
     private void Start()
     {
@@ -22,24 +36,13 @@ public class DetectHMD : MonoBehaviour
     {
         yield return null;
 
-        //while()
-        //{
-        //    InputDevices.GetDevices(inputDevices);
-
-        //}
-        
-        
-        while (true)
+        while (!HMDDetector.isPresent())
         {
-            var inputDevices = new List<UnityEngine.XR.InputDevice>();
-            InputDevices.GetDevices(inputDevices);
-            foreach (var device in inputDevices)
-            {
-                Debug.Log(string.Format("Device found with name'{0}' and role '{1}'", device.name, device.role.ToString()));
-
-            }
+            Debug.Log("HMD not Detected");
             yield return new WaitForSeconds(2f);
         }
+        LoadingManager.LoadScene("Wearing");
 
+        yield return null;
     }
 }

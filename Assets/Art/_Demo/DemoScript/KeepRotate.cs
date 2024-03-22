@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class KeepRotate : MonoBehaviour
 {
+    [SerializeField]
+    [Range (1f, 100f)]
     public float speed;
    
     // Update is called once per frame

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static CURRENT_STATE STATE;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
+}
+
+public enum CURRENT_STATE
+{
+    TITLE, WEARING, BACKSTAGE, COMMUNICATION, GAME, RESULT, REQUEST_ENCORE, GAMEOVER
 }
