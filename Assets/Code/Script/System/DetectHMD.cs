@@ -33,7 +33,6 @@ public class DetectHMD : MonoBehaviour
         {
             var inputDevices = new List<UnityEngine.XR.InputDevice>();
             InputDevices.GetDevices(inputDevices);
-            Debug.Log("test");
             foreach (var device in inputDevices)
             {
                 Debug.Log(string.Format("Device found with name'{0}' and role '{1}'", device.name, device.role.ToString()));

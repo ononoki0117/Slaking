@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -1158874478
     Data4: -1192708325
   Banks:
-  - {fileID: 2596766584252718778}
+  - {fileID: 1524786403041604892}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -27,6 +27,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 256026
+--- !u!114 &-1780919468117485591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../RhythmCoreFmod/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638466617491983387
+  FileSizes:
+  - Name: Desktop
+    Value: 756
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,38 +60,18 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 2494636716297149449}
-  - {fileID: 2596766584252718778}
+  - {fileID: -1780919468117485591}
+  - {fileID: 1524786403041604892}
   EditorEvents:
   - {fileID: -7817720298828563718}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 2596766584252718778}
+  - {fileID: 1524786403041604892}
   StringsBanks:
-  - {fileID: 2494636716297149449}
-  cacheTime: 638439587346563595
+  - {fileID: -1780919468117485591}
+  cacheTime: 638466617491983387
   cacheVersion: 131616
---- !u!114 &2494636716297149449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/RhythmCoreFmod/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638439587346563595
-  FileSizes:
-  - Name: Desktop
-    Value: 756
-  Exists: 1
---- !u!114 &2596766584252718778
+--- !u!114 &1524786403041604892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,10 +83,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/RhythmCoreFmod/Build/Desktop/Master.bank
+  Path: ../RhythmCoreFmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638439587346563595
+  lastModified: 638466617491983387
   FileSizes:
   - Name: Desktop
     Value: 3348800
