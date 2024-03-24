@@ -10,6 +10,6 @@ public class InitGame : MonoBehaviour
         {
             Display.displays[1].Activate();
         }
-        GameManager.STATE = CURRENT_STATE.TITLE;
+        GameManager.ChangeState("TITLE");
     }
 }

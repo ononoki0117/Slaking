@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1200874407632789307}
   - component: {fileID: 4360922851444835856}
   - component: {fileID: 3445133067491292672}
+  - component: {fileID: 350156257138240499}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -134,6 +135,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &350156257138240499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237755026728538611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 134a566fb2c0c6145aacb818bee00465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadTextFromSheet: 0
+  TargetText: {fileID: 3445133067491292672}
+  DialogLines: []
+  index: 0
 --- !u!1 &2360017989712449056
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +272,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9028750557987737052}
     m_Modifications:
+    - target: {fileID: 1711438777641784522, guid: 634cd6c49df94439c9513ecd1b50d5d4, type: 3}
+      propertyPath: isShow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711438777641784522, guid: 634cd6c49df94439c9513ecd1b50d5d4, type: 3}
+      propertyPath: activate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1889107868339947492, guid: 634cd6c49df94439c9513ecd1b50d5d4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

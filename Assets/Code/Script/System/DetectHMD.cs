@@ -32,6 +32,16 @@ public class DetectHMD : MonoBehaviour
         StartCoroutine(HMDDetection());
     }
 
+
+    private void Update()
+    {
+        // 현재는 HMD를 Detect하는 것이 아닌 그냥 들어가는;;;
+        if (Input.anyKeyDown)
+        {
+            LoadingManager.LoadScene("Wearing");
+        }
+    }
+
     IEnumerator HMDDetection()
     {
         yield return null;

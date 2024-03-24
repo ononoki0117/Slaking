@@ -10,7 +10,6 @@ public class SetHMDPosition : MonoBehaviour
     public bool isVrActive = false;
 
     private Vector3 cameraPosition;
-    // Start is called before the first frame update
     void Start()
     {
         if(LeftEyeSurface != null && RightEyeSurface != null)
@@ -21,7 +20,6 @@ public class SetHMDPosition : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isVrActive)

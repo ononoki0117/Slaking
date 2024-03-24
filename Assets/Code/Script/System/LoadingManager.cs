@@ -16,6 +16,8 @@ public class LoadingManager : Singleton<LoadingManager>
 
     public static void LoadScene(string sceneName)
     {
+        if (nextScene == sceneName)
+            return;
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");
     }

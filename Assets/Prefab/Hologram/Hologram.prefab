@@ -283,10 +283,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HologramCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 7298956169630273564, guid: 514be2b85bd963d41bcc7264fba04928, type: 3}
-      propertyPath: offset.y
-      value: -0.52
-      objectReference: {fileID: 0}
     - target: {fileID: 7472916572553221807, guid: 514be2b85bd963d41bcc7264fba04928, type: 3}
       propertyPath: m_TargetEye
       value: 0

@@ -14,9 +14,9 @@ public class DetectWearing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            LoadingManager.LoadScene("BackStage");
-        }
+        //if (Input.anyKeyDown)
+        //{
+        //    LoadingManager.LoadScene("BackStage");
+        //}
     }
 }

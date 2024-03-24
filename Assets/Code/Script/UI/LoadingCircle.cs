@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateLoadingCircle : MonoBehaviour
+public class LoadingCircle : MonoBehaviour
 {
     void Update()
     {

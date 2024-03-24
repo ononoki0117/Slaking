@@ -307,8 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf1d376429c1e54a9956d580b5f97c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTarget: 0
   targetObject: {fileID: 0}
-  offset: {x: 0, y: -0.9, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   smoothness: 0.174
 --- !u!20 &7472916572553221807
 Camera:
