@@ -9,6 +9,7 @@ public class InitGame : MonoBehaviour
         if (Display.displays.Length > 1)
         {
             Display.displays[1].Activate();
+            Display.displays[2].Activate();
         }
         //GameManager.ChangeState("TITLE");
     }
