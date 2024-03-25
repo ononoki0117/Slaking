@@ -8,22 +8,28 @@ using FMODUnity;
 using FMOD;
 public class MusicManager : MonoBehaviour
 {
-    //public static MusicManager instance;
+    public static MusicManager instance;
     [SerializeField]
     private EventReference music;
 
     public TimelineInfo timelineInfo = null;
     private GCHandle timelineHandle;
-
     public FMOD.Studio.EventInstance musicInstance;
-
     private FMOD.Studio.EVENT_CALLBACK beatCallback;
-
-    public bool tick = true;
-
     private bool isPlaying = false;
 
+    public delegate void BeatEventDelegate();
+    public static event BeatEventDelegate beatUpdate;
+
+    public delegate void MarkerListnerDelegate();
+    public static event MarkerListnerDelegate markerUpdated;
+
+    public static int lastBeat = 0;
+    public static string lastMarkerString = null;
+
     public StartVideo video;
+
+    [SerializeField] private static LightControl lightControler;
 
     [StructLayout(LayoutKind.Sequential)]
     public class TimelineInfo
@@ -38,8 +44,11 @@ public class MusicManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("gg");
             musicInstance = RuntimeManager.CreateInstance(music);
-
-            //musicInstance.start();
+            timelineInfo = new TimelineInfo();
+            beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
+            timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
+            musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
+            musicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
         }
     }
 
@@ -48,35 +57,39 @@ public class MusicManager : MonoBehaviour
         musicInstance.start();
 
         video.player.Play();
-        timelineInfo = new TimelineInfo();
-        beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
-        timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
-        musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
-        musicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        
         isPlaying = true;
     }
 
-    private void Start()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            StartMusic();
-        }
-        if (isPlaying)
-        {
-            //UnityEngine.Debug.Log($"Current Beat = {timelineInfo.currentBeat}, Last Marker = {(string)timelineInfo.lastMarker}");
-        }
-    }
 
     private void Update()
     {
-        
-        //
+        if (Input.GetKeyDown(KeyCode.Space) && !isPlaying)
+        {
+            StartMusic();
+        }
+
+        if (isPlaying)
+        {
+            if (lastMarkerString != timelineInfo.lastMarker)
+            {
+                lastMarkerString = timelineInfo.lastMarker;
+
+                if(markerUpdated != null)
+                {
+                    markerUpdated();
+                }
+            }
+            if (lastBeat != timelineInfo.currentBeat)
+            {
+                lastBeat = timelineInfo.currentBeat;
+
+                if(beatUpdate != null)
+                {
+                    beatUpdate();
+                }
+            }
+        }
     }
 
     private void OnDestroy()
@@ -126,6 +139,7 @@ public class MusicManager : MonoBehaviour
                     {
                         var parameter = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
                         timelineInfo.lastMarker = parameter.name;
+                        //lightControler.turnOn = !lightControler.turnOn;
                     }
                     break;
             }
