@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 256026
+--- !u!114 &-4538080692282836997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sorega_zenbu_Guide_TDPT
+  m_EditorClassIdentifier: 
+  Path: event:/Sorega_zenbu_Guide_TDPT
+  Guid:
+    Data1: 174348603
+    Data2: 1257143980
+    Data3: 1990905501
+    Data4: -442231304
+  Banks:
+  - {fileID: 7127798083322732412}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 109608
 --- !u!114 &-3821339901337615270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +69,10 @@ MonoBehaviour:
   Path: ../RhythmCoreFmod/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638466617491983387
+  lastModified: 638469250784327806
   FileSizes:
   - Name: Desktop
-    Value: 756
+    Value: 822
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -64,12 +91,13 @@ MonoBehaviour:
   - {fileID: 7127798083322732412}
   EditorEvents:
   - {fileID: -7817720298828563718}
+  - {fileID: -4538080692282836997}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7127798083322732412}
   StringsBanks:
   - {fileID: -3821339901337615270}
-  cacheTime: 638466617491983387
+  cacheTime: 638469250784327806
   cacheVersion: 131616
 --- !u!114 &7127798083322732412
 MonoBehaviour:
@@ -86,8 +114,8 @@ MonoBehaviour:
   Path: ../RhythmCoreFmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638466617491983387
+  lastModified: 638469250784297794
   FileSizes:
   - Name: Desktop
-    Value: 3348800
+    Value: 4814752
   Exists: 1
