@@ -19,7 +19,7 @@ MonoBehaviour:
     Data3: -1158874478
     Data4: -1192708325
   Banks:
-  - {fileID: 7127798083322732412}
+  - {fileID: 2405716304985387447}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -46,7 +46,7 @@ MonoBehaviour:
     Data3: 1990905501
     Data4: -442231304
   Banks:
-  - {fileID: 7127798083322732412}
+  - {fileID: 2405716304985387447}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -54,26 +54,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 109608
---- !u!114 &-3821339901337615270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../RhythmCoreFmod/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638469250784327806
-  FileSizes:
-  - Name: Desktop
-    Value: 822
-  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,19 +67,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -3821339901337615270}
-  - {fileID: 7127798083322732412}
+  - {fileID: 5172506995090800213}
+  - {fileID: 2405716304985387447}
   EditorEvents:
   - {fileID: -7817720298828563718}
   - {fileID: -4538080692282836997}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 7127798083322732412}
+  - {fileID: 2405716304985387447}
   StringsBanks:
-  - {fileID: -3821339901337615270}
-  cacheTime: 638469250784327806
+  - {fileID: 5172506995090800213}
+  cacheTime: 638469159215333902
   cacheVersion: 131616
---- !u!114 &7127798083322732412
+--- !u!114 &2405716304985387447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,11 +91,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../RhythmCoreFmod/Build/Desktop/Master.bank
+  Path: ../../FMOD Studio/RhythmCoreFmod/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638469250784297794
+  lastModified: 638469159215333902
   FileSizes:
   - Name: Desktop
     Value: 4814752
+  Exists: 1
+--- !u!114 &5172506995090800213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/RhythmCoreFmod/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638469159215333902
+  FileSizes:
+  - Name: Desktop
+    Value: 822
   Exists: 1
