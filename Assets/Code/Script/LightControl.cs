@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class LightControl : MonoBehaviour
 {
-    [SerializeField]
-    public Light[] PointLight;
+    //[SerializeField]
+    //public Light[] PointLight;
 
-    [SerializeField][Range(2f, 5f)] private float intencity;
+    [SerializeField]
+    [Range(2f, 20f)] private float markerInitialIntencity;
+    [SerializeField]
+    [Range(2f, 20f)] private float markerIntencity;
+    [SerializeField]
+    [Range(2f, 20f)] private float beatInitialIntencity;
+    [SerializeField]
+    [Range(2f, 20f)] private float beatIntencity;
 
     [SerializeField]
     private bool waitForString = false;
@@ -15,51 +22,91 @@ public class LightControl : MonoBehaviour
     [SerializeField]
     private string stringToWaitFor = "";
 
-    
+    [SerializeField]
+    private Material markerMaterial;
+    [SerializeField]
+    private Material beatMaterial;
+
+    private bool isFirstMarker = true;
+
     public bool turnOn;
 
     public void Control()
     {
-        if (turnOn)
-        {
-            foreach (Light light in PointLight)
-            {
-                light.intensity = intencity;
-            }
-        }
-        else
-        {
-            foreach(Light light in PointLight)
-            {
-                light.intensity = 0;
-            }
-        }
+        //if (turnOn)
+        //{
+        //    foreach (Light light in PointLight)
+        //    {
+        //        light.intensity = initialIntencity;
+        //    }
+        //}
+        //else
+        //{
+        //    foreach(Light light in PointLight)
+        //    {
+        //        light.intensity = 0;
+        //    }
+        //}
     }
 
     private void Awake()
     {
-        MusicManager.markerUpdated += FadeOut;
+        MusicManager.markerUpdated += MarkerFadeOut;
+        MusicManager.beatUpdate += BeatFadeOut;
     }
 
-    private void FadeOut()
+    private void MarkerFadeOut()
     {
-        Debug.Log("FadeOut");
-        foreach( Light light in PointLight)
+        if (isFirstMarker)
         {
-            light.intensity = intencity;
+            isFirstMarker = false;
+            return;
         }
-        StartCoroutine(Fading());
+        markerIntencity = markerInitialIntencity;
+        //Debug.Log("FadeOut");
+        //foreach( Light light in PointLight)
+        //{
+        //    light.intensity = intencity;
+        //}
+        //StartCoroutine(LightFading());
+        StartCoroutine(MarkerFade());
     }
 
-    private IEnumerator Fading()
+    private void BeatFadeOut()
     {
-        while (PointLight[0].intensity > 0)
+        beatIntencity = beatInitialIntencity;
+        StartCoroutine(BeatFade());
+    }
+
+    //private IEnumerator LightFading()
+    //{
+    //    while (PointLight[0].intensity > 0)
+    //    {
+    //        foreach (Light light in PointLight)
+    //        {
+    //            light.intensity -= Time.deltaTime * 2;
+    //            Debug.Log($"{light.intensity}");
+    //        }
+    //        yield return null;
+    //    }
+    //}
+
+    private IEnumerator MarkerFade()
+    {
+        while (markerIntencity > 4)
         {
-            foreach (Light light in PointLight)
-            {
-                light.intensity -= Time.deltaTime * 2;
-                Debug.Log($"{light.intensity}");
-            }
+            markerIntencity -= Time.deltaTime * 5;
+            markerMaterial.SetColor("_EmissionColor", new Color(1,1,1) * markerIntencity);
+            yield return null;
+        }
+    }
+
+    private IEnumerator BeatFade()
+    {
+        while (beatIntencity > 5)
+        {
+            beatIntencity -= Time.deltaTime * 7;
+            beatMaterial.SetColor("_EmissionColor", new Color(1,1,1) * beatIntencity);
             yield return null;
         }
     }
