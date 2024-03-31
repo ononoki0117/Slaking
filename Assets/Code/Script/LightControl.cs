@@ -17,12 +17,6 @@ public class LightControl : MonoBehaviour
     [Range(2f, 20f)] private float beatIntencity;
 
     [SerializeField]
-    private bool waitForString = false;
-
-    [SerializeField]
-    private string stringToWaitFor = "";
-
-    [SerializeField]
     private Material markerMaterial;
     [SerializeField]
     private Material beatMaterial;

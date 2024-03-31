@@ -25,8 +25,6 @@ internal static class HMDDetector
 /// </summary>
 public class DetectHMD : MonoBehaviour
 {
-    private bool IsFoundHMD = false;
-
     private void Start()
     {
         StartCoroutine(HMDDetection());
@@ -46,13 +44,23 @@ public class DetectHMD : MonoBehaviour
     {
         yield return null;
 
-        while (!HMDDetector.isPresent())
+        while (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("HMD not Detected");
-            yield return new WaitForSeconds(2f);
-        }
-        GameManager.ChangeState(STATE.WEARING);
+            if (HMDDetector.isPresent())
+            {
+                Debug.Log("Move");
 
+                GameManager.ChangeState(STATE.WEARING);
+
+                yield return null;
+                break;
+            }
+            else
+            {
+                Debug.Log("No HMD Detected!");
+            }
+            yield return null;
+        }
         yield return null;
     }
 }

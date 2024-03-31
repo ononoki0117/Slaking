@@ -30,6 +30,15 @@ public class LoadingManager : Singleton<LoadingManager>
             }
             return;
         }
+        try
+        {
+            GameManager.UpdateState(state);
+            Debug.Log("Loading Mananger : Update State");
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("Loading Manager : No Event exist");
+        }
         Debug.Log("Loading Manager : Load " + sceneName);
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");

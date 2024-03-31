@@ -22,7 +22,7 @@ public class GameManager : Singleton<GameManager>
     public static event StateUpdate ToGame;
     public static event StateUpdate ToCommunication;
     public static event StateUpdate ToResult;
-    public static event StateUpdate ToRequsetEncore;
+    public static event StateUpdate ToRequestEncore;
     public static event StateUpdate ToGameOver;
     #endregion
 
@@ -97,21 +97,13 @@ public class GameManager : Singleton<GameManager>
             case STATE.GAME: ToGame(); break;
             case STATE.COMMUNICATION: ToCommunication(); break;
             case STATE.RESULT: ToResult(); break;
-            case STATE.REQUEST_ENCORE: ToRequsetEncore(); break;
+            case STATE.REQUEST_ENCORE: ToRequestEncore(); break;
             case STATE.GAMEOVER: ToGameOver(); break;
         }
     }
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-
-    }
     private void Start()
     {
-        current_state = NEXT_STATE;
-        current_scene = CURRENT_SCENE;
-
         if (CURRENT_STATE != NEXT_STATE)
         {
             CURRENT_STATE = NEXT_STATE;
@@ -124,9 +116,17 @@ public class GameManager : Singleton<GameManager>
             catch (System.Exception)
             {
                 Debug.Log("GameManager : Start : No Event Exist");
+                Debug.Log(CURRENT_STATE.ToString());
             }
-            
         }
+        
+        current_state = CURRENT_STATE;
+        current_scene = CURRENT_SCENE;
+    }
+
+    private void Update()
+    {
+        
     }
 }
 
