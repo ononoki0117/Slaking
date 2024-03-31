@@ -88,6 +88,7 @@ public class GameManager : Singleton<GameManager>
 
     public static void UpdateState(STATE state)
     {
+        CURRENT_STATE = state;
         switch(state)
         {
             case STATE.TITLE: ToTitle(); break;
@@ -126,7 +127,8 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        
+        current_state = CURRENT_STATE;
+        current_scene = CURRENT_SCENE;
     }
 }
 

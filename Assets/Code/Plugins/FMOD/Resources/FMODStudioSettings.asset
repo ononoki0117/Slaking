@@ -307,8 +307,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../FMOD Studio/RhythmCoreFmod/metronome.fspro
-  sourceBankPath: ../../FMOD Studio/RhythmCoreFmod/Build
+  sourceProjectPath: ../SoregaZenbu_Movement/SoregaZenbu_Movement.fspro
+  sourceBankPath: ../SoregaZenbu_Movement/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

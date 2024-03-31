@@ -18,22 +18,22 @@ public class FlatUITextManager : MonoBehaviour
     private void Awake()
     {
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
-        GameManager.ToWearing += delegate() { StartCoroutine(ChangeInto(wearing)); };
-        GameManager.ToTutorial += delegate () { StartCoroutine(ChangeInto(tutorial)); };
-        GameManager.ToCommunication += delegate () { StartCoroutine(ChangeInto(communication)); };
-        GameManager.ToGame += delegate () { StartCoroutine(ChangeInto(game)); };
-        GameManager.ToRequestEncore += delegate { StartCoroutine(ChangeInto(request_encore)); };
+        GameManager.ToWearing += delegate() { StartCoroutine(ChangeText(wearing)); };
+        GameManager.ToTutorial += delegate () { StartCoroutine(ChangeText(tutorial)); };
+        GameManager.ToCommunication += delegate () { StartCoroutine(ChangeText(communication)); };
+        GameManager.ToGame += delegate () { StartCoroutine(ChangeText(game)); };
+        GameManager.ToRequestEncore += delegate { StartCoroutine(ChangeText(request_encore)); };
     }
 
-    IEnumerator ChangeInto(string text)
+    IEnumerator ChangeText(string text)
     {
-        while(TargetText.color.a > 0.01)
+        while(TargetText.color.a > 0.001)
         {
             TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, TargetText.color.a - Time.deltaTime);
             yield return null;
         }
         TargetText.text = text;
-        while (TargetText.color.a <= 0.99)
+        while (TargetText.color.a <= 0.999)
         {
             TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, TargetText.color.a + Time.deltaTime);
             yield return null;

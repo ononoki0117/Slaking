@@ -44,6 +44,18 @@ public class LoadingManager : Singleton<LoadingManager>
         SceneManager.LoadScene("Loading");
     }
 
+    IEnumerator FadeIn()
+    {
+
+        SceneManager.LoadScene("Loading");
+        yield return null;
+    }
+
+    IEnumerator FadeOut()
+    {
+        yield return null;
+    }
+
     IEnumerator LoadScene()
     {
         yield return null;

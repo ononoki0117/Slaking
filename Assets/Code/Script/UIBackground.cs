@@ -15,7 +15,7 @@ public class UIBackground : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        while(background.color.a > 0.01)
+        while(background.color.a > 0.001)
         {
             background.color = new Color(0f, 0f, 0f, background.color.a - Time.deltaTime);
             yield return null;
