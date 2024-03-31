@@ -6,6 +6,6 @@ public class ReadyButton : MonoBehaviour
 {
    public static void OnClickReadyButton()
     {
-        GameManager.ChangeState("Tutorial");
+        GameManager.ChangeState(STATE.TUTORIAL);
     }
 }

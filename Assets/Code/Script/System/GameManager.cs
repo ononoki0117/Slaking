@@ -5,108 +5,139 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public static CURRENT_STATE STATE { get; private set; }
+    public static STATE NEXT_STATE { get; private set; }
+    public static STATE CURRENT_STATE { get; private set; }
+    public static SCENE CURRENT_SCENE { get; private set; }
 
-    public static CURRENT_SCENE SCENE { get; private set; }
+    public STATE current_state;
+    public SCENE current_scene;
+    public static bool IsStateChanged = false;
 
-    public static void ChangeState(string state)
+    #region event
+    public delegate void StateUpdate();
+    public static event StateUpdate ToTitle;
+    public static event StateUpdate ToWearing;
+    public static event StateUpdate ToTutorial;
+    public static event StateUpdate ToSelectMusic;
+    public static event StateUpdate ToGame;
+    public static event StateUpdate ToCommunication;
+    public static event StateUpdate ToResult;
+    public static event StateUpdate ToRequsetEncore;
+    public static event StateUpdate ToGameOver;
+    #endregion
+
+    public static void ChangeState(STATE state)
     {
+        NEXT_STATE = state;
         switch(state)
         {
-            case "Title":
-                ChangeState(CURRENT_STATE.TITLE); break;
-            case "Wearing":
-                ChangeState(CURRENT_STATE.WEARING); break;
-            case "Tutorial":
-                ChangeState(CURRENT_STATE.TUTORIAL); break;
-            case "SelectMusic":
-                ChangeState(CURRENT_STATE.SELECT_MUSIC); break;
-            case "Communication":
-                ChangeState(CURRENT_STATE.COMMUNICATION); break;
-            case "Game":
-                ChangeState(CURRENT_STATE.GAME); break;
-            case "Result":
-                ChangeState(CURRENT_STATE.RESULT); break;
-            case "RequestEncore":
-                ChangeState(CURRENT_STATE.REQUEST_ENCORE); break;
-            case "GameOver":
-                ChangeState(CURRENT_STATE.GAMEOVER); break;
-            default:
+            case STATE.TITLE:
+                CURRENT_SCENE = SCENE.TITLE;
+                MoveScene(SCENE.TITLE, STATE.TITLE);
+                break;
+            case STATE.WEARING:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.WEARING);
+                break;
+            case STATE.TUTORIAL:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.TUTORIAL);
+                break;
+            case STATE.SELECT_MUSIC:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.SELECT_MUSIC);
+                break;
+            case STATE.GAME:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.GAME);
+                break;
+            case STATE.COMMUNICATION:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.COMMUNICATION);
+                break;
+            case STATE.RESULT:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.RESULT);
+                break;
+            case STATE.REQUEST_ENCORE:
+                CURRENT_SCENE = SCENE.STAGE;
+                MoveScene(SCENE.STAGE, STATE.REQUEST_ENCORE);
+                break;
+            case STATE.GAMEOVER:
+                CURRENT_SCENE = SCENE.END;
+                MoveScene(SCENE.END, STATE.GAMEOVER);
                 break;
         }
     }
 
-    private static void ChangeState(CURRENT_STATE state)
-    {
-        STATE = state;
-        switch(state)
-        {
-            case CURRENT_STATE.TITLE:
-                SCENE = CURRENT_SCENE.TITLE;
-                MoveScene(CURRENT_SCENE.TITLE);
-                break;
-            case CURRENT_STATE.WEARING:
-                SCENE = CURRENT_SCENE.WEARING;
-                MoveScene(CURRENT_SCENE.WEARING);
-                break;
-            case CURRENT_STATE.TUTORIAL:
-            case CURRENT_STATE.SELECT_MUSIC:
-                SCENE = CURRENT_SCENE.BACKSTAGE;
-                MoveScene(CURRENT_SCENE.BACKSTAGE);
-                break;
-            case CURRENT_STATE.COMMUNICATION:
-            case CURRENT_STATE.GAME:
-            case CURRENT_STATE.RESULT:
-            case CURRENT_STATE.REQUEST_ENCORE:
-                SCENE = CURRENT_SCENE.STAGE;
-                MoveScene(CURRENT_SCENE.STAGE);
-                break;
-            case CURRENT_STATE.GAMEOVER:
-                SCENE = CURRENT_SCENE.END;
-                MoveScene(CURRENT_SCENE.END);
-                break;
-        }
-    }
-
-    private static void MoveScene(CURRENT_SCENE scene)
+    private static void MoveScene(SCENE scene, STATE state)
     {
         switch(scene)
         {
-            case CURRENT_SCENE.TITLE:
-                LoadingManager.LoadScene("Title");
+            case SCENE.TITLE:
+                LoadingManager.LoadScene("Title", state);
                 break;
-            case CURRENT_SCENE.WEARING:
-                LoadingManager.LoadScene("Wearing");
+            case SCENE.STAGE:
+                LoadingManager.LoadScene("Stage", state);
                 break;
-            case CURRENT_SCENE.BACKSTAGE:
-                LoadingManager.LoadScene("BackStage");
+            case SCENE.END:
+                LoadingManager.LoadScene("End", state);
                 break;
-            case CURRENT_SCENE.STAGE:
-                LoadingManager.LoadScene("Stage");
-                break;
-            case CURRENT_SCENE.END:
-                LoadingManager.LoadScene("End");
-                break;
+        }
+    }
+
+    public static void UpdateState(STATE state)
+    {
+        switch(state)
+        {
+            case STATE.TITLE: ToTitle(); break;
+            case STATE.WEARING: ToWearing(); break;
+            case STATE.TUTORIAL: ToTutorial(); break;
+            case STATE.SELECT_MUSIC: ToSelectMusic(); break;
+            case STATE.GAME: ToGame(); break;
+            case STATE.COMMUNICATION: ToCommunication(); break;
+            case STATE.RESULT: ToResult(); break;
+            case STATE.REQUEST_ENCORE: ToRequsetEncore(); break;
+            case STATE.GAMEOVER: ToGameOver(); break;
         }
     }
 
     private void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
+    }
+    private void Start()
+    {
+        current_state = NEXT_STATE;
+        current_scene = CURRENT_SCENE;
+
+        if (CURRENT_STATE != NEXT_STATE)
+        {
+            CURRENT_STATE = NEXT_STATE;
+            try
+            {
+                // STATE변경에 따른 이벤트 호출
+                UpdateState(CURRENT_STATE);
+                Debug.Log("GameManager : Start : Update State");
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("GameManager : Start : No Event Exist");
+            }
+            
+        }
     }
 }
 
-public enum CURRENT_STATE
+public enum STATE
 {
-    TITLE, // TITLE
-    WEARING, // WEARING
-    TUTORIAL, SELECT_MUSIC, // BACKSTAGE
-    COMMUNICATION, GAME, RESULT, REQUEST_ENCORE, // STAGE
+    TITLE, WEARING, // TITLE
+    TUTORIAL, SELECT_MUSIC, COMMUNICATION, GAME, RESULT, REQUEST_ENCORE, // STAGE
     GAMEOVER // END
 }
 
-public enum CURRENT_SCENE
+public enum SCENE
 {
-    TITLE, WEARING, BACKSTAGE, STAGE, END, LOADING
+    TITLE, STAGE, END, LOADING
 }

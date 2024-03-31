@@ -38,7 +38,7 @@ public class DetectHMD : MonoBehaviour
         // 현재는 HMD를 Detect하는 것이 아닌 그냥 들어가는;;;
         if (Input.anyKeyDown)
         {
-            LoadingManager.LoadScene("Wearing");
+            GameManager.ChangeState(STATE.WEARING);
         }
     }
 
@@ -51,7 +51,7 @@ public class DetectHMD : MonoBehaviour
             Debug.Log("HMD not Detected");
             yield return new WaitForSeconds(2f);
         }
-        LoadingManager.LoadScene("Wearing");
+        GameManager.ChangeState(STATE.WEARING);
 
         yield return null;
     }

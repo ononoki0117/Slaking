@@ -134,6 +134,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4972679709424513987}
     m_Modifications:
+    - target: {fileID: 2003004437624786009, guid: d80d6863ad2978745b5342b85986c801, type: 3}
+      propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3295518130094282065, guid: d80d6863ad2978745b5342b85986c801, type: 3}
       propertyPath: m_Name
       value: FlatCamera

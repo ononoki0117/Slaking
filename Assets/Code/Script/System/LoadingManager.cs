@@ -14,10 +14,23 @@ public class LoadingManager : Singleton<LoadingManager>
         StartCoroutine(LoadScene());
     }
 
-    public static void LoadScene(string sceneName)
+    public static void LoadScene(string sceneName, STATE state)
     {
         if (nextScene == sceneName)
+        {
+            Debug.Log("Loading Manager : Stay in Currnet Scene");
+            try
+            {
+                GameManager.UpdateState(state);
+                Debug.Log("Loading Mananger : Update State");
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("Loading Manager : No Event exist");
+            }
             return;
+        }
+        Debug.Log("Loading Manager : Load " + sceneName);
         nextScene = sceneName;
         SceneManager.LoadScene("Loading");
     }
@@ -46,6 +59,7 @@ public class LoadingManager : Singleton<LoadingManager>
                 if (progressBar.fillAmount == 1.0f)
                 {
                     op.allowSceneActivation = true;
+                    GameManager.IsStateChanged = true;
                     yield break;
                 }
             }

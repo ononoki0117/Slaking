@@ -11,6 +11,6 @@ public class InitGame : MonoBehaviour
             Display.displays[1].Activate();
             Display.displays[2].Activate();
         }
-        //GameManager.ChangeState("TITLE");
+        LoadingManager.nextScene = "Title";
     }
 }
