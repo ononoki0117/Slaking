@@ -41,10 +41,12 @@ public class LoadingManager : Singleton<LoadingManager>
         }
         Debug.Log("Loading Manager : Load " + sceneName);
         nextScene = sceneName;
+        //LoadingManager.Instance.StartCoroutine(FadeIntoLoading());
+        //StartCoroutine(FadeIntoLoading());
         SceneManager.LoadScene("Loading");
     }
 
-    IEnumerator FadeIn()
+    static IEnumerator FadeIntoLoading()
     {
         GameObject[] LoadingBlacks = GameObject.FindGameObjectsWithTag("LoadingBlack");
         List<Image> BlackScreen = new List<Image>();
@@ -57,6 +59,8 @@ public class LoadingManager : Singleton<LoadingManager>
            foreach(Image img in BlackScreen)
            {
                 img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + Time.deltaTime);
+
+                //Debug.Log("alpha: " + img.color.a);
            }
            yield return null;
         }
@@ -64,29 +68,30 @@ public class LoadingManager : Singleton<LoadingManager>
         yield return null;
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOutoGame(AsyncOperation op)
     {
+        op.allowSceneActivation = true;
+        GameManager.IsStateChanged = true;
         GameObject[] LoadingBlacks = GameObject.FindGameObjectsWithTag("LoadingBlack");
         List<Image> BlackScreen = new List<Image>();
         foreach (GameObject obj in LoadingBlacks)
         {
             BlackScreen.Add(obj.GetComponent<Image>());
         }
-        while (BlackScreen[0].color.a < 0.999)
+        while (BlackScreen[0].color.a > 0.001)
         {
             foreach (Image img in BlackScreen)
             {
-                img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + Time.deltaTime);
+                img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a - Time.deltaTime * 1.5f);
+                Debug.Log(img.color);
             }
             yield return null;
         }
-        SceneManager.LoadScene("Loading");
         yield return null;
     }
 
     IEnumerator LoadScene()
     {
-        yield return null;
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
@@ -104,13 +109,11 @@ public class LoadingManager : Singleton<LoadingManager>
             }
             else
             {
-                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
-                if (progressBar.fillAmount == 1.0f)
-                {
-                    op.allowSceneActivation = true;
-                    GameManager.IsStateChanged = true;
-                    yield break;
-                }
+                yield return new WaitForSeconds(0.7f);
+                op.allowSceneActivation = true;
+                GameManager.IsStateChanged = true;
+            
+                yield break;
             }
         }
     }

@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Activator : MonoBehaviour
+{
+    [SerializeField] private GameObject avatar;
+    [SerializeField] private Material controllerMaterial;
+    
+    private void Awake()
+    {
+        GameManager.ToWearing += delegate () { avatar.SetActive(true); };
+        GameManager.ToWearing += delegate () { ShowXRController(false); };
+
+        GameManager.ToTutorial += delegate () { avatar.SetActive(false); };
+        GameManager.ToTutorial += delegate () { ShowXRController(true); };
+
+        GameManager.ToSelectMusic += delegate () { avatar.SetActive(false); };
+        GameManager.ToSelectMusic += delegate () { ShowXRController(true); };
+
+        GameManager.ToGame += delegate () { avatar.SetActive(true); };
+        GameManager.ToGame += delegate () { ShowXRController(false); };
+
+        GameManager.ToCommunication += delegate () { avatar.SetActive(true); };
+        GameManager.ToCommunication += delegate () { ShowXRController(false); };
+
+        GameManager.ToResult += delegate () { avatar.SetActive(false); };
+        GameManager.ToResult += delegate () { ShowXRController(true); };
+
+        GameManager.ToRequestEncore += delegate () { avatar.SetActive(false); };
+        GameManager.ToRequestEncore += delegate () { ShowXRController(true); };
+
+        GameManager.ToGameOver += delegate () { avatar.SetActive(false); };
+        GameManager.ToGameOver += delegate () { ShowXRController(true); };
+    }
+
+    private void ShowXRController(bool isActive)
+    {
+        if (isActive)
+        {
+            controllerMaterial.SetColor("_Color", new Color(1, 1, 1, 1));
+        }
+        else
+        {
+            controllerMaterial.SetColor("_Color", new Color(1, 1, 1, 0));
+        }
+    }
+
+    private void ShowAvatar(bool isActive)
+    {
+        if (isActive)
+        {
+            
+        }
+    }
+}

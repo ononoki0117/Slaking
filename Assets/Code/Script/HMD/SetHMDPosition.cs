@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class SetHMDPosition : MonoBehaviour
 {
-    public GameObject LeftEyeSurface;
-    public GameObject RightEyeSurface;
+    public Transform HMDtransform;
     public GameObject Head;
     public bool isVrActive = false;
 
-    private Vector3 cameraPosition;
     void Start()
     {
-        if(LeftEyeSurface != null && RightEyeSurface != null)
+        if(HMDtransform != null)
         {
-            isVrActive = true;
-            cameraPosition = (LeftEyeSurface.transform.position + RightEyeSurface.transform.position) / 2;
-            transform.position = cameraPosition;
+           isVrActive = true;
+           transform.position = HMDtransform.position;
         }
     }
 
@@ -24,9 +21,8 @@ public class SetHMDPosition : MonoBehaviour
     {
         if (isVrActive)
         {
-            cameraPosition = (LeftEyeSurface.transform.position + RightEyeSurface.transform.position) / 2;
-            transform.position = cameraPosition;
-            Head.transform.rotation = transform.rotation;
+            transform.position = HMDtransform.position;
+            //Head.transform.rotation = transform.rotation;
         }
     }
 }

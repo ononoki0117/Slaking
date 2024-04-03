@@ -20,8 +20,8 @@ public class FlatUITextManager : MonoBehaviour
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
         GameManager.ToWearing += delegate() { StartCoroutine(ChangeText(wearing)); };
         GameManager.ToTutorial += delegate () { StartCoroutine(ChangeText(tutorial)); };
-        GameManager.ToCommunication += delegate () { StartCoroutine(ChangeText(communication)); };
         GameManager.ToGame += delegate () { StartCoroutine(ChangeText(game)); };
+        GameManager.ToCommunication += delegate () { StartCoroutine(ChangeText(communication)); };
         GameManager.ToRequestEncore += delegate { StartCoroutine(ChangeText(request_encore)); };
     }
 
