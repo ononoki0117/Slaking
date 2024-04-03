@@ -46,13 +46,41 @@ public class LoadingManager : Singleton<LoadingManager>
 
     IEnumerator FadeIn()
     {
-
+        GameObject[] LoadingBlacks = GameObject.FindGameObjectsWithTag("LoadingBlack");
+        List<Image> BlackScreen = new List<Image>();
+        foreach(GameObject obj in LoadingBlacks)
+        {
+            BlackScreen.Add(obj.GetComponent<Image>());
+        }
+        while(BlackScreen[0].color.a < 0.999)
+        {
+           foreach(Image img in BlackScreen)
+           {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + Time.deltaTime);
+           }
+           yield return null;
+        }
         SceneManager.LoadScene("Loading");
         yield return null;
     }
 
     IEnumerator FadeOut()
     {
+        GameObject[] LoadingBlacks = GameObject.FindGameObjectsWithTag("LoadingBlack");
+        List<Image> BlackScreen = new List<Image>();
+        foreach (GameObject obj in LoadingBlacks)
+        {
+            BlackScreen.Add(obj.GetComponent<Image>());
+        }
+        while (BlackScreen[0].color.a < 0.999)
+        {
+            foreach (Image img in BlackScreen)
+            {
+                img.color = new Color(img.color.r, img.color.g, img.color.b, img.color.a + Time.deltaTime);
+            }
+            yield return null;
+        }
+        SceneManager.LoadScene("Loading");
         yield return null;
     }
 
