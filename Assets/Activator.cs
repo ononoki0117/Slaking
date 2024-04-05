@@ -6,11 +6,12 @@ public class Activator : MonoBehaviour
 {
     [SerializeField] private GameObject avatar;
     [SerializeField] private Material controllerMaterial;
+    [SerializeField] private GameObject[] Controllers;
     
     private void Awake()
     {
         GameManager.ToWearing += delegate () { avatar.SetActive(true); };
-        GameManager.ToWearing += delegate () { ShowXRController(false); };
+        GameManager.ToWearing += delegate () { ShowXRController(true); };
 
         GameManager.ToTutorial += delegate () { avatar.SetActive(false); };
         GameManager.ToTutorial += delegate () { ShowXRController(true); };
@@ -32,6 +33,13 @@ public class Activator : MonoBehaviour
 
         GameManager.ToGameOver += delegate () { avatar.SetActive(false); };
         GameManager.ToGameOver += delegate () { ShowXRController(true); };
+    }
+    private void Start()
+    {
+        foreach(GameObject obj in Controllers)
+        {
+            obj.SetActive(true);
+        }
     }
 
     private void ShowXRController(bool isActive)

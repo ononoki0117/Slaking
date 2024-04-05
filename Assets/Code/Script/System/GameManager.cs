@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
     #region event
     public delegate void StateUpdate();
     public static event StateUpdate ToTitle;
+    public static event StateUpdate ToDemo;
     public static event StateUpdate ToWearing;
     public static event StateUpdate ToTutorial;
     public static event StateUpdate ToSelectMusic;
@@ -34,6 +35,10 @@ public class GameManager : Singleton<GameManager>
             case STATE.TITLE:
                 CURRENT_SCENE = SCENE.TITLE;
                 MoveScene(SCENE.TITLE, STATE.TITLE);
+                break;
+            case STATE.DEMO:
+                CURRENT_SCENE = SCENE.TITLE;
+                MoveScene(SCENE.TITLE, STATE.DEMO);
                 break;
             case STATE.WEARING:
                 CURRENT_SCENE = SCENE.STAGE;
@@ -92,6 +97,7 @@ public class GameManager : Singleton<GameManager>
         switch(state)
         {
             case STATE.TITLE: ToTitle(); break;
+            case STATE.DEMO: ToDemo(); break;
             case STATE.WEARING: ToWearing(); break;
             case STATE.TUTORIAL: ToTutorial(); break;
             case STATE.SELECT_MUSIC: ToSelectMusic(); break;
@@ -134,8 +140,8 @@ public class GameManager : Singleton<GameManager>
 
 public enum STATE
 {
-    TITLE, WEARING, // TITLE
-    TUTORIAL, SELECT_MUSIC, COMMUNICATION, GAME, RESULT, REQUEST_ENCORE, // STAGE
+    TITLE, DEMO,// TITLE
+    WEARING, TUTORIAL, SELECT_MUSIC, COMMUNICATION, GAME, RESULT, REQUEST_ENCORE, // STAGE
     GAMEOVER // END
 }
 

@@ -15,6 +15,10 @@ public class ControlStageTextBox : MonoBehaviour
     [SerializeField] private ControlStageButton ButtonControl;
     [SerializeField][TextArea] private string tutorialEnd;
     [SerializeField] private Image textBox;
+    [SerializeField] private StageScreenSwitcher switcher;
+
+    private bool VideoEnded = false;
+
     private void Awake()
     {
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
@@ -46,15 +50,14 @@ public class ControlStageTextBox : MonoBehaviour
             yield return ChangeText(s);
             yield return new WaitForSeconds(2.5f);
         }
-        while (TargetText.color.a > 0.001)
-        {
-            TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, TargetText.color.a - Time.deltaTime);
-            yield return null;
-        }
-        yield return new WaitForSeconds(3f);
-        
-
+        yield return ClearAll();
+        yield return switcher.ChangeTexture(switcher.VideoTexture, switcher.TutorialVideoClip);
         // 비디오 재생 코루틴 실행
+
+        switcher.VideoPlayer.loopPointReached += IsVideoEnded;
+        VideoEnded = false;
+
+        yield return new WaitUntil(() => VideoEnded);
 
         yield return ChangeText(back);
 
@@ -71,5 +74,10 @@ public class ControlStageTextBox : MonoBehaviour
             
             yield return null;
         }
+    }
+
+    private void IsVideoEnded(UnityEngine.Video.VideoPlayer vp)
+    {
+        VideoEnded = true;
     }
 }
