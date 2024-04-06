@@ -5859,8 +5859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetText: {fileID: 225665785}
-  wearing: "\uBAA8\uB4E0 \uC900\uBE44\uAC00 \uB05D\uB098\uC168\uB2E4\uBA74 \uC544\uB798\uC758
-    \uBC84\uD2BC\uC744 \uB20C\uB7EC\uC8FC\uC138\uC694!"
+  wearing: "\uC81C\uC790\uB9AC\uC5D0 \uC11C\uC11C \uC815\uBA74\uC744 \uBCF4\uACE0
+    \uC704 \uC790\uC138\uB97C \uCDE8\uD574\uC8FC\uC138\uC694"
   tutorialFront:
   - "\uBC18\uAC11\uC2B5\uB2C8\uB2E4!"
   - "\uB2F9\uC2E0\uC740 \uBC84\uCD94\uC5BC \uC544\uC774\uB3CC\uC774 \uB418\uC5B4\n\uCF58\uC11C\uD2B8\uB97C
@@ -17108,7 +17108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetText: {fileID: 1313395602}
   TargetImage: {fileID: 2011191839}
-  ReadyText: "\uC900\uBE44\uC644\uB8CC!"
+  ReadyText: "\uD655\uC778"
 --- !u!114 &2011191838
 MonoBehaviour:
   m_ObjectHideFlags: 0

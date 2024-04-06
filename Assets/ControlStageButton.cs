@@ -47,7 +47,9 @@ public class ControlStageButton : MonoBehaviour
         switch (GameManager.CURRENT_STATE)
         {
             case STATE.WEARING:
-                GameManager.ChangeState(STATE.TUTORIAL); 
+                ControlStageTextBox control = FindAnyObjectByType<ControlStageTextBox>();
+                StartCoroutine(control.ClearAll());
+                //GameManager.ChangeState(STATE.TUTORIAL); 
                 break;
             case STATE.TUTORIAL:
                 GameManager.ChangeState(STATE.SELECT_MUSIC);

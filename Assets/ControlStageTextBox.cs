@@ -64,7 +64,7 @@ public class ControlStageTextBox : MonoBehaviour
         yield return ButtonControl.ShowButton(tutorialEnd);
     }
 
-    IEnumerator ClearAll()
+    public IEnumerator ClearAll()
     {
         yield return ButtonControl.HideButton();
         while (TargetText.color.a > 0.001)
