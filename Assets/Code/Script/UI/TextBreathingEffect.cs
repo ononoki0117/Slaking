@@ -12,10 +12,32 @@ public class TextBreathingEffect : MonoBehaviour
     private void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
+        StartCoroutine(BreathingEffect());
     }
-    void Update()
+    
+
+    IEnumerator BreathingEffect()
     {
-        var alpha = (Mathf.Sin(Time.time * breathSpeed) + 1) / 2;
-        text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+        while(true)
+        {
+            if (Input.anyKey)
+            {
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+                yield return new WaitForSeconds(0.3f);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+                yield return new WaitForSeconds(0.3f);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+                yield return new WaitForSeconds(0.3f);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+                yield return new WaitForSeconds(0.3f);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+                yield return new WaitForSeconds(0.3f);
+                text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+                yield return new WaitForSeconds(0.3f);
+            }
+            var alpha = (Mathf.Sin(Time.time * breathSpeed) + 1) / 2;
+            text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+            yield return null;
+        }
     }
 }

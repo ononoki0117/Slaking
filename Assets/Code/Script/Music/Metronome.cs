@@ -70,10 +70,10 @@ public class Metronome : MonoBehaviour
         currentBeat--;
         if (currentBeat == 0) currentBeat = signatureHI;
 
-        if (tickSound)
-        {
-            AudioManager.Instance.PlaySFX(SFX.Metronome);   
-        }
+        //if (tickSound)
+        //{
+        //    AudioManager.Instance.PlaySFX(SFX.Metronome);   
+        //}
     }
 
 

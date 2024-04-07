@@ -519,14 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ed6ca6bd1e0144a8383105e169e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music:
-    Guid:
-      Data1: 518942032
-      Data2: 1085030809
-      Data3: 1317937083
-      Data4: -1664214840
-    Path: event:/Sorega_Zenbu_5sec_Bound
-  video: {fileID: 0}
+  isPlaying: 0
 --- !u!1 &50151866
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +549,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.05
+  m_Intensity: 0.16
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5870,11 +5863,11 @@ MonoBehaviour:
   - "\uC55E\uCABD \uD654\uBA74\uC744 \uBD10 \uC8FC\uC138\uC694!"
   tutorialBack: "\uD29C\uD1A0\uB9AC\uC5BC\uC774 \uC644\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4!\n\uBCF8\uACA9\uC801\uC73C\uB85C
     \uCF58\uC11C\uD2B8\uB97C \uC2DC\uC791\uD574\uBCFC\uAE4C\uC694?"
-  communication:
-  - "\uC190\uC744 \uD06C\uAC8C \uD754\uB4E4\uC5B4\n\uD32C\uBD84\uB4E4\uC5D0\uAC8C
+  communication: "\uC190\uC744 \uD06C\uAC8C \uD754\uB4E4\uC5B4\n\uD32C\uBD84\uB4E4\uC5D0\uAC8C
     \uC778\uC0AC\uD574 \uC8FC\uC138\uC694!"
   ButtonControl: {fileID: 2011191837}
   tutorialEnd: "\uB81B\uCE20 \uACE0!"
+  enterCommunication: "\uD655\uC778"
   textBox: {fileID: 737258482}
   switcher: {fileID: 6990764668158014829}
 --- !u!114 &737258482
@@ -8554,6 +8547,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4021413416512074481, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TargetEye
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4134505312059479865, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8624,6 +8621,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873184977108000993, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8821029318128668983, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
@@ -8703,6 +8704,16 @@ Transform:
 --- !u!1 &1122091871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1122091869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1122091872 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9014170783809206330, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 1122091869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1122091873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294048, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
   m_PrefabInstance: {fileID: 1122091869}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123295723
@@ -8965,6 +8976,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 781630661673262082, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 737258480}
+    - targetCorrespondingSourceObject: {fileID: 781630661673262082, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5575459638350269347}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c24a7635b5761984d81cf6c4aac26e0d, type: 3}
 --- !u!224 &1124784553 stripped
@@ -17109,6 +17123,7 @@ MonoBehaviour:
   TargetText: {fileID: 1313395602}
   TargetImage: {fileID: 2011191839}
   ReadyText: "\uD655\uC778"
+  MusicSelectBoxControl: {fileID: 5575459638350269348}
 --- !u!114 &2011191838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18796,6 +18811,7 @@ GameObject:
   - component: {fileID: 1253415891}
   - component: {fileID: 3905509373635512366}
   - component: {fileID: 3905509373635512367}
+  - component: {fileID: 3905509373635512368}
   m_Layer: 0
   m_Name: Stage Manager
   m_TagString: Untagged
@@ -19703,6 +19719,21 @@ MonoBehaviour:
   Controllers:
   - {fileID: 1122091871}
   - {fileID: 843165161}
+--- !u!114 &3905509373635512368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744508141809221485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2f44b77f8d06d4186d7dda3e50b5c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetTransform: {fileID: 1924740839}
+  player: {fileID: 1122091873}
+  playerHead: {fileID: 1122091872}
 --- !u!224 &3999539777367120700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19836,6 +19867,157 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &5575459638350269346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1124784553}
+    m_Modifications:
+    - target: {fileID: 1550916293554412398, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f0905426bb9ddf4d894f7da5c23eef4, type: 3}
+    - target: {fileID: 1938364586029249446, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397905354684590725, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3627830423327216948, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1064
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404352784257786771, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832695216829856536, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858738267135712949, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113539367934967425, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Name
+      value: Music Select Box 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113539367934967425, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208237062367169537, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908994730188720128, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031576106219648376, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+--- !u!224 &5575459638350269347 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5157823093372436429, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+  m_PrefabInstance: {fileID: 5575459638350269346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5575459638350269348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6113539367934967425, guid: 8a0064b047061f042b617ef8a1f04c2f, type: 3}
+  m_PrefabInstance: {fileID: 5575459638350269346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5620043373005090700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20064,6 +20246,20 @@ MonoBehaviour:
   VideoPlayer: {fileID: 4587177084591943905}
   TutorialVideoClip: {fileID: 32900000, guid: a4046221186c766478bdf65a1a4199be, type: 3}
   GameVideoClip: {fileID: 32900000, guid: b895c8a47c0fc324c94babb6a65e08e6, type: 3}
+  GameMusic:
+    Guid:
+      Data1: 302718629
+      Data2: 1164986312
+      Data3: -1742137980
+      Data4: -1829517272
+    Path: event:/Sorega_Zenbu_main
+  TutorialMusic:
+    Guid:
+      Data1: 302718629
+      Data2: 1164986312
+      Data3: -1742137980
+      Data4: -1829517272
+    Path: event:/Sorega_Zenbu_main
 --- !u!1 &7489492574399885961
 GameObject:
   m_ObjectHideFlags: 0

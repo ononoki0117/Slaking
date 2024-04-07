@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,11 @@ public class StageScreenSwitcher : MonoBehaviour
     [SerializeField] public VideoPlayer VideoPlayer;
     [SerializeField] public VideoClip TutorialVideoClip;
     [SerializeField] public VideoClip GameVideoClip;
-    
+
+    [Header("Music properties")]
+    [SerializeField] private EventReference GameMusic;
+    [SerializeField] private EventReference TutorialMusic;
+
     private void Awake()
     {
         WebCamDevice[] devices = WebCamTexture.devices;
@@ -46,7 +51,7 @@ public class StageScreenSwitcher : MonoBehaviour
         GameManager.ToWearing += delegate () { StartCoroutine(ChangeTexture(ImageTexture)); };
         GameManager.ToTutorial += delegate () { StartCoroutine(FadeIn()); };
         GameManager.ToSelectMusic += delegate () { StartCoroutine(FadeIn()); };
-        GameManager.ToGame += delegate () { StartCoroutine(ChangeTexture(VideoTexture, GameVideoClip)); };
+        //GameManager.ToGame += delegate () { StartCoroutine(ChangeTexture(VideoTexture, GameVideoClip)); };
         GameManager.ToCommunication += delegate () { StartCoroutine(ChangeTexture(WebcamTexture)); };
         GameManager.ToResult += delegate () { StartCoroutine(FadeIn()); };
         GameManager.ToRequestEncore += delegate () { StartCoroutine(ChangeTexture(WebcamTexture)); };
@@ -87,11 +92,23 @@ public class StageScreenSwitcher : MonoBehaviour
 
         if(clip != null)
         {
-            //yield return new WaitForSeconds(2f);
+            if(GameManager.CURRENT_STATE == STATE.TUTORIAL)
+            {
+                MusicManager.Instance.SetMusic(TutorialMusic);
+            }
+            if (GameManager.CURRENT_STATE == STATE.GAME)
+            {
+                MusicManager.Instance.SetMusic(GameMusic);
+            }
+
+            yield return new WaitForSeconds(2f);
+            MusicManager.Instance.StartMusic();
             VideoPlayer.Play();
         }
 
         yield break;
     }
+
+
 
 }

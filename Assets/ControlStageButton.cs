@@ -12,12 +12,15 @@ public class ControlStageButton : MonoBehaviour
 
     [SerializeField] private string ReadyText;
 
+    [SerializeField] private GameObject MusicSelectBoxControl;
+
+
     private void Awake()
     {
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
         TargetImage.color = new Color(TargetImage.color.r, TargetImage.color.g, TargetImage.color.b, 0);
 
-        GameManager.ToWearing += delegate () { StartCoroutine(ShowButton(ReadyText)); };
+        GameManager.ToWearing += delegate () { StartCoroutine(ShowButton(ReadyText)); AudioManager.Instance.PlaySFX(SFX.Notice); };
         GameManager.ToTutorial += delegate () { StartCoroutine(HideButton()); };
     }
 
@@ -44,15 +47,28 @@ public class ControlStageButton : MonoBehaviour
 
     public void OnClick()
     {
+        AudioManager.Instance.PlaySFX(SFX.Click);
         switch (GameManager.CURRENT_STATE)
         {
             case STATE.WEARING:
                 ControlStageTextBox control = FindAnyObjectByType<ControlStageTextBox>();
                 StartCoroutine(control.ClearAll());
-                //GameManager.ChangeState(STATE.TUTORIAL); 
+                Recenter recenter = FindAnyObjectByType<Recenter>();
+                StartCoroutine(recenter.WaitR4ResetPosition());
                 break;
             case STATE.TUTORIAL:
                 GameManager.ChangeState(STATE.SELECT_MUSIC);
+                MusicSelectBoxControl.gameObject.SetActive(true);
+
+                StartCoroutine(MusicSelectBoxControl.GetComponent<MusicSelectBoxControl>().Blink());  
+
+                break;
+            case STATE.RESULT:
+                StartCoroutine(HideButton());
+                ControlStageTextBox control2 = FindAnyObjectByType<ControlStageTextBox>();
+                StartCoroutine(control2.ClearAll());
+                GameManager.ChangeState(STATE.COMMUNICATION);
+
                 break;
             default:
                 break;

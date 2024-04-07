@@ -13,15 +13,6 @@ public class MusicPlayer : Singleton<MusicPlayer>
 
     private FMOD.Channel channel;
 
-    private void Awake()
-    {
-        if (!isPlaying)
-        {
-            PlayMusic(SFX.Background);
-        }
-        UnityEngine.Debug.Log(GetFrequency());
-        GetComponent<Metronome>().SetFrequency(GetFrequency());
-    }
 
     public void PlayMusic(SFX _sfx)
     {

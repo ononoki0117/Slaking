@@ -6,17 +6,13 @@ using System.Text;
 using UnityEngine;
 using FMODUnity;
 using FMOD;
-public class MusicManager : MonoBehaviour
+public class MusicManager : Singleton<MusicManager>
 {
-    public static MusicManager instance;
-    [SerializeField]
-    private EventReference music;
-
     public TimelineInfo timelineInfo = null;
     private GCHandle timelineHandle;
     public FMOD.Studio.EventInstance musicInstance;
     private FMOD.Studio.EVENT_CALLBACK beatCallback;
-    private bool isPlaying = false;
+    public bool isPlaying = false;
 
     public delegate void BeatEventDelegate();
     public static event BeatEventDelegate beatUpdate;
@@ -26,8 +22,6 @@ public class MusicManager : MonoBehaviour
 
     public static int lastBeat = 0;
     public static string lastMarkerString = null;
-
-    public StartVideo video;
 
     [SerializeField] private static LightControl lightControler;
 
@@ -40,10 +34,22 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!music.IsNull)
+        //if (!GameMusic.IsNull)
+        //{
+        //    musicInstance = RuntimeManager.CreateInstance(GameMusic);
+        //    timelineInfo = new TimelineInfo();
+        //    beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
+        //    timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
+        //    musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
+        //    musicInstance.setCallback(beatCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        //}
+    }
+
+    public void SetMusic(EventReference GameMusic)
+    {
+        if (!GameMusic.IsNull)
         {
-            UnityEngine.Debug.Log("gg");
-            musicInstance = RuntimeManager.CreateInstance(music);
+            musicInstance = RuntimeManager.CreateInstance(GameMusic);
             timelineInfo = new TimelineInfo();
             beatCallback = new FMOD.Studio.EVENT_CALLBACK(BeatEventCallback);
             timelineHandle = GCHandle.Alloc(timelineInfo, GCHandleType.Pinned);
@@ -56,19 +62,12 @@ public class MusicManager : MonoBehaviour
     {
         musicInstance.start();
 
-        video.player.Play();
-        
         isPlaying = true;
     }
 
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isPlaying)
-        {
-            StartMusic();
-        }
-
         if (isPlaying)
         {
             if (lastMarkerString != timelineInfo.lastMarker)

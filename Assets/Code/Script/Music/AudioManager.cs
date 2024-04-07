@@ -7,27 +7,35 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
 
-    public bool metronome = true;
-
     [Header("SFX")]
     FMOD.ChannelGroup sfxChannelGroup;
     FMOD.Sound[] sfxs;
     FMOD.Channel[] sfxChannels;
 
+    [Header("Volume")]
     [SerializeField]
     private int sfxVolume = 1;
 
     [SerializeField]
     private int masterVolume = 1;
 
+    [Header("Effect")]
+    [SerializeField]
+    private string start;
+    [SerializeField]
+    private string click;
+    [SerializeField]
+    private string notice;
+    [SerializeField]
+    private string confirm;
 
-    void Awake()
+    private void Awake()
     {
-        LoadSFX(Parser.Load("SongInfo/Kanade").title);
+        DontDestroyOnLoad(this);
+        LoadSFX();
     }
 
-
-    private void LoadSFX(string musicName)
+    private void LoadSFX()
     {
         int count = System.Enum.GetValues(typeof(SFX)).Length;
 
@@ -35,14 +43,19 @@ public class AudioManager : Singleton<AudioManager>
         sfxChannels = new FMOD.Channel[count];
         sfxs = new FMOD.Sound[count];
 
-        string metronomeName = "Metronome.mp3";
+        //string metronomeName = "Metronome.mp3";
 
         // 일단은 수동으로 로드함
-        var Result1 = FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Music", musicName), FMOD.MODE.CREATESAMPLE, out sfxs[0]);
-        var Result2 = FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Music", metronomeName), FMOD.MODE.CREATESAMPLE, out sfxs[1]);
+        //var Result1 = FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Music", musicName), FMOD.MODE.CREATESAMPLE, out sfxs[0]);
+        //var Result2 = FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Music", metronomeName), FMOD.MODE.CREATESAMPLE, out sfxs[1]);
 
-        Debug.Log(Result1);
-        Debug.Log(Result2);
+        //Debug.Log(Result1);
+        //Debug.Log(Result2);
+
+        FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", start), FMOD.MODE.CREATESAMPLE, out sfxs[0]);
+        FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", click), FMOD.MODE.CREATESAMPLE, out sfxs[1]);
+        FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", notice), FMOD.MODE.CREATESAMPLE, out sfxs[2]);
+        FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", confirm), FMOD.MODE.CREATESAMPLE, out sfxs[3]);
 
         for (int i = 0; i < count; i++)
         {
@@ -72,6 +85,8 @@ public class AudioManager : Singleton<AudioManager>
 
 public enum SFX
 {
-    Background,
-    Metronome
+    Start,
+    Click,
+    Notice,
+    Confirm,
 }

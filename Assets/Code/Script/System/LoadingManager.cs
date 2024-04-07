@@ -9,6 +9,10 @@ public class LoadingManager : Singleton<LoadingManager>
     public static string nextScene;
     [SerializeField] Image progressBar;
 
+    public delegate void LoadingEvent();
+    public static event LoadingEvent LoadStart;
+    public static event LoadingEvent LoadFinish;
+
     void Start()
     {
         StartCoroutine(LoadScene());
@@ -92,6 +96,10 @@ public class LoadingManager : Singleton<LoadingManager>
 
     IEnumerator LoadScene()
     {
+        LoadStart();
+        yield return new WaitUntil(LoadingCircle.IsActive);
+        yield return new WaitForSeconds(1f);
+
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
@@ -109,7 +117,8 @@ public class LoadingManager : Singleton<LoadingManager>
             }
             else
             {
-                yield return new WaitForSeconds(0.7f);
+                LoadFinish();
+                //yield return new WaitForSeconds(2f);
                 op.allowSceneActivation = true;
                 GameManager.IsStateChanged = true;
             

@@ -123,6 +123,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &198298571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198298573}
+  - component: {fileID: 198298572}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &198298572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198298571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 754c053c202619d429d0ebe80d5e68cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxVolume: 1
+  masterVolume: 1
+  start: "\u6C7A\u5B9A\u30DC\u30BF\u30F3\u3092\u62BC\u305930.mp3"
+  click: "\u6C7A\u5B9A\u30DC\u30BF\u30F3\u3092\u62BC\u305939.mp3"
+  notice: "\u6C7A\u5B9A\u30DC\u30BF\u30F3\u3092\u62BC\u305935.mp3"
+  confirm: "\u6C7A\u5B9A\u30DC\u30BF\u30F3\u3092\u62BC\u305953.mp3"
+--- !u!4 &198298573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198298571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 993.43506, y: 540.672, z: 609.8283}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251774162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,3 +3433,4 @@ SceneRoots:
   - {fileID: 2103391544}
   - {fileID: 1834116227}
   - {fileID: 1213966622}
+  - {fileID: 198298573}

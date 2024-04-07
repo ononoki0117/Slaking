@@ -60,6 +60,8 @@ public class TitleSceneManager : MonoBehaviour
             timer += Time.deltaTime;
             if (Input.anyKey)
             {
+                AudioManager.Instance.PlaySFX(SFX.Start);
+                yield return new WaitForSeconds(4f);
                 GameManager.ChangeState(STATE.WEARING);
                 yield break;
             }
