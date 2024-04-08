@@ -14,9 +14,11 @@ public class ControlStageButton : MonoBehaviour
 
     [SerializeField] private GameObject MusicSelectBoxControl;
 
+    private Button button;
 
     private void Awake()
     {
+        button = GetComponent<Button>();
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
         TargetImage.color = new Color(TargetImage.color.r, TargetImage.color.g, TargetImage.color.b, 0);
 
@@ -26,6 +28,7 @@ public class ControlStageButton : MonoBehaviour
 
     public IEnumerator ShowButton(string text)
     {
+        button.interactable = true;
         TargetText.text = text;
         while (TargetText.color.a <= 0.999)
         {
@@ -51,12 +54,14 @@ public class ControlStageButton : MonoBehaviour
         switch (GameManager.CURRENT_STATE)
         {
             case STATE.WEARING:
+                button.interactable = false;
                 ControlStageTextBox control = FindAnyObjectByType<ControlStageTextBox>();
                 StartCoroutine(control.ClearAll());
                 Recenter recenter = FindAnyObjectByType<Recenter>();
                 StartCoroutine(recenter.WaitR4ResetPosition());
                 break;
             case STATE.TUTORIAL:
+                button.interactable = false;
                 GameManager.ChangeState(STATE.SELECT_MUSIC);
                 MusicSelectBoxControl.gameObject.SetActive(true);
 
@@ -64,6 +69,7 @@ public class ControlStageButton : MonoBehaviour
 
                 break;
             case STATE.RESULT:
+                button.interactable = false;
                 StartCoroutine(HideButton());
                 ControlStageTextBox control2 = FindAnyObjectByType<ControlStageTextBox>();
                 StartCoroutine(control2.ClearAll());

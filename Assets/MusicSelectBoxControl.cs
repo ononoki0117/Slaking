@@ -16,7 +16,7 @@ public class MusicSelectBoxControl : MonoBehaviour
             image.color = new Color(1, 1, 1, 0);
         }
         gameObject.SetActive(false);
-        //GameManager.ToSelectMusic += delegate () { StartCoroutine(Blink()); };
+        GameManager.ToGame += delegate () { gameObject.SetActive(false); };
     }
 
     private void Start()

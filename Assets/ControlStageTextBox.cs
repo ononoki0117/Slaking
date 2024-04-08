@@ -93,7 +93,7 @@ public class ControlStageTextBox : MonoBehaviour
 
     public IEnumerator ReadyCommunicating()
     {
-        yield return switcher.ChangeTexture(switcher.WebcamTexture);
+        yield return switcher.ChangeTexture(switcher.WebcamTexture, null, true);
         while (textBox.color.a <= 0.999)
         {
             textBox.color = new Color(textBox.color.r, textBox.color.g, textBox.color.b, textBox.color.a + Time.deltaTime);

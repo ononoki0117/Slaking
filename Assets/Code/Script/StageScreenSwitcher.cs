@@ -45,7 +45,7 @@ public class StageScreenSwitcher : MonoBehaviour
 
         WebCamDevice device = WebCamTexture.devices[WebcamIndex];
         WebcamTexture = new WebCamTexture(device.name);
-
+        
         BlackScreen.color = new Color(0, 0, 0, 1);
 
         GameManager.ToWearing += delegate () { StartCoroutine(ChangeTexture(ImageTexture)); };
@@ -77,7 +77,7 @@ public class StageScreenSwitcher : MonoBehaviour
         yield break;
     }
 
-    public IEnumerator ChangeTexture(Texture texture, VideoClip clip = null)
+    public IEnumerator ChangeTexture(Texture texture, VideoClip clip = null, bool isWebcam = false)
     {
         yield return FadeIn();
         
@@ -86,6 +86,12 @@ public class StageScreenSwitcher : MonoBehaviour
         if (clip != null)
         {
             VideoPlayer.clip = clip;
+        }
+
+        if (isWebcam)
+        {
+            TargetImage.texture = WebcamTexture;
+            WebcamTexture.Play();
         }
 
         yield return FadeOut();
