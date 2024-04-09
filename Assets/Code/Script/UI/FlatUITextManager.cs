@@ -8,11 +8,10 @@ public class FlatUITextManager : MonoBehaviour
 {
     public TextMeshProUGUI TargetText;
 
-    [SerializeField] private string wearing;
-    [SerializeField] private string tutorial;
-    [SerializeField] private string communication;
-    [SerializeField] private string game;
-    [SerializeField] private string request_encore;
+    [SerializeField][TextArea] private string wearing;
+    [SerializeField][TextArea] private string tutorial;
+    [SerializeField][TextArea] private string selectmusic;
+    [SerializeField][TextArea] private string communication;
 
 
     private void Awake()
@@ -20,19 +19,33 @@ public class FlatUITextManager : MonoBehaviour
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
         GameManager.ToWearing += delegate() { StartCoroutine(ChangeText(wearing)); };
         GameManager.ToTutorial += delegate () { StartCoroutine(ChangeText(tutorial)); };
-        GameManager.ToGame += delegate () { StartCoroutine(ChangeText(game)); };
-        GameManager.ToCommunication += delegate () { StartCoroutine(ChangeText(communication)); };
-        GameManager.ToRequestEncore += delegate { StartCoroutine(ChangeText(request_encore)); };
+        GameManager.ToSelectMusic += delegate () { StartCoroutine(ChangeText(selectmusic)); };
+        GameManager.ToGame += delegate () { StartCoroutine(HideText()); };
+        GameManager.ToResult += delegate () {
+            StartCoroutine(ChangeText(communication)); 
+        };
     }
 
     IEnumerator ChangeText(string text)
     {
-        while(TargetText.color.a > 0.001)
+        yield return HideText();
+
+        TargetText.text = text;
+
+        yield return ShowText();
+    }
+
+    IEnumerator HideText()
+    {
+        while (TargetText.color.a > 0.001)
         {
             TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, TargetText.color.a - Time.deltaTime);
             yield return null;
         }
-        TargetText.text = text;
+    }
+
+    IEnumerator ShowText()
+    {
         while (TargetText.color.a <= 0.999)
         {
             TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, TargetText.color.a + Time.deltaTime);

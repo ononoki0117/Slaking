@@ -15,6 +15,7 @@ public class LoadingCircle : MonoBehaviour
         Active = false;
         LoadingManager.LoadStart += delegate () { StartCoroutine(FadeIn()); };
         LoadingManager.LoadFinish += delegate () { StartCoroutine(FadeOut()); };
+        GameManager.ToGame += delegate () { StartCoroutine(FadeOut()); };
     }
     void Update()
     {

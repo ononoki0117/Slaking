@@ -1,79 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7898342499181279624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tutorial_event
-  m_EditorClassIdentifier: 
-  Path: event:/Tutorial_event
-  Guid:
-    Data1: 804006146
-    Data2: 1170240895
-    Data3: -1634073208
-    Data4: -1622131220
-  Banks:
-  - {fileID: -1941010554157108979}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 103368
---- !u!114 &-1941010554157108979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ../SoregaZenbu_Movement/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638482124893139186
-  FileSizes:
-  - Name: Desktop
-    Value: 2471072
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 8398687014196456725}
-  - {fileID: -1941010554157108979}
-  EditorEvents:
-  - {fileID: 7914942040904931160}
-  - {fileID: 6818503029210423347}
-  - {fileID: -7898342499181279624}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -1941010554157108979}
-  StringsBanks:
-  - {fileID: 8398687014196456725}
-  cacheTime: 638482124893149186
-  cacheVersion: 131616
---- !u!114 &6818503029210423347
+--- !u!114 &-3794388582820376608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Sorega_Zenbu_main
   Guid:
-    Data1: 302718629
-    Data2: 1164986312
-    Data3: -1742137980
-    Data4: -1829517272
+    Data1: 331982314
+    Data2: 1241372767
+    Data3: 235929524
+    Data4: -1877447652
   Banks:
-  - {fileID: -1941010554157108979}
+  - {fileID: 4278577883927410538}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -100,6 +27,99 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 107040
+--- !u!114 &-2144517852632438789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial_Event
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial_Event
+  Guid:
+    Data1: 151127157
+    Data2: 1162238274
+    Data3: 1367542414
+    Data4: -1824492447
+  Banks:
+  - {fileID: 4278577883927410538}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 103368
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 1007053895149618171}
+  - {fileID: 4278577883927410538}
+  EditorEvents:
+  - {fileID: 7914942040904931160}
+  - {fileID: -2144517852632438789}
+  - {fileID: -3794388582820376608}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 4278577883927410538}
+  StringsBanks:
+  - {fileID: 1007053895149618171}
+  cacheTime: 638482752293644960
+  cacheVersion: 131616
+--- !u!114 &1007053895149618171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638482752293644960
+  FileSizes:
+  - Name: Desktop
+    Value: 876
+  Exists: 1
+--- !u!114 &4278577883927410538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638482752293634927
+  FileSizes:
+  - Name: Desktop
+    Value: 2470880
+  Exists: 1
 --- !u!114 &7914942040904931160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +139,7 @@ MonoBehaviour:
     Data3: 1317937083
     Data4: -1664214840
   Banks:
-  - {fileID: -1941010554157108979}
+  - {fileID: 4278577883927410538}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -127,23 +147,3 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 107040
---- !u!114 &8398687014196456725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: ../SoregaZenbu_Movement/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638482124893149186
-  FileSizes:
-  - Name: Desktop
-    Value: 876
-  Exists: 1

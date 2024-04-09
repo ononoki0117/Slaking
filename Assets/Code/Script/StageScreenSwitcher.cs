@@ -115,6 +115,11 @@ public class StageScreenSwitcher : MonoBehaviour
         yield break;
     }
 
+    IEnumerator Wait4Encore()
+    {
+        yield return null;
 
+
+    }
 
 }
