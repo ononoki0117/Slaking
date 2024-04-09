@@ -119,7 +119,12 @@ public class StageScreenSwitcher : MonoBehaviour
     {
         yield return null;
 
+        float timer = 0;
 
+        while(timer < 10f)
+        {
+
+        }
     }
 
 }
