@@ -21,12 +21,11 @@ public class FlatUITextManager : MonoBehaviour
         GameManager.ToTutorial += delegate () { StartCoroutine(ChangeText(tutorial)); };
         GameManager.ToSelectMusic += delegate () { StartCoroutine(ChangeText(selectmusic)); };
         GameManager.ToGame += delegate () { StartCoroutine(HideText()); };
-        GameManager.ToResult += delegate () {
-            StartCoroutine(ChangeText(communication)); 
-        };
+        GameManager.ToResult += delegate () {StartCoroutine(ChangeText(communication)); };
+        GameManager.ToRequestEncore += delegate () { StartCoroutine(HideText()); };
     }
 
-    IEnumerator ChangeText(string text)
+    public IEnumerator ChangeText(string text)
     {
         yield return HideText();
 
@@ -35,7 +34,7 @@ public class FlatUITextManager : MonoBehaviour
         yield return ShowText();
     }
 
-    IEnumerator HideText()
+    public IEnumerator HideText()
     {
         while (TargetText.color.a > 0.001)
         {

@@ -12,6 +12,8 @@ public class ControlStageButton : MonoBehaviour
 
     [SerializeField] private string ReadyText;
 
+    [SerializeField] private string RequestText;
+
     [SerializeField] private GameObject MusicSelectBoxControl;
 
     private Button button;
@@ -24,6 +26,7 @@ public class ControlStageButton : MonoBehaviour
 
         GameManager.ToWearing += delegate () { StartCoroutine(ShowButton(ReadyText)); AudioManager.Instance.PlaySFX(SFX.Notice); };
         GameManager.ToTutorial += delegate () { StartCoroutine(HideButton()); };
+        //GameManager.ToRequestEncore += delegate () { StartCoroutine(ShowButton(RequestText)); };
     }
 
     public IEnumerator ShowButton(string text)
@@ -59,12 +62,12 @@ public class ControlStageButton : MonoBehaviour
                 StartCoroutine(control.ClearAll());
                 Recenter recenter = FindAnyObjectByType<Recenter>();
                 StartCoroutine(recenter.WaitR4ResetPosition());
+
                 break;
             case STATE.TUTORIAL:
                 button.interactable = false;
-                GameManager.ChangeState(STATE.SELECT_MUSIC);
-                MusicSelectBoxControl.gameObject.SetActive(true);
 
+                GameManager.ChangeState(STATE.SELECT_MUSIC);
                 StartCoroutine(MusicSelectBoxControl.GetComponent<MusicSelectBoxControl>().Blink());  
 
                 break;
@@ -75,6 +78,29 @@ public class ControlStageButton : MonoBehaviour
                 StartCoroutine(control2.ClearAll());
                 GameManager.ChangeState(STATE.COMMUNICATION);
 
+                break;
+            case STATE.REQUEST_ENCORE:
+                button.interactable = false;
+                StartCoroutine (HideButton());
+                ControlStageTextBox control3 = FindAnyObjectByType<ControlStageTextBox>();
+                StartCoroutine(control3.ClearAll());
+                GameManager.HadEncore = true;
+
+                //FlatUITextManager flat = FindAnyObjectByType<FlatUITextManager>();
+                //GameManager.ToGame += delegate () { StartCoroutine(flat.HideText()); };
+                //GameManager.ToResult += delegate () { StartCoroutine(flat.ChangeText("버추얼 아이돌에게 인사해 주세요!!")); };
+                //UIBackground ui = FindAnyObjectByType<UIBackground>();
+                //GameManager.ToGame += delegate () { StartCoroutine(ui.FadeOut()); };
+
+                //ControlStageTextBox box = FindAnyObjectByType<ControlStageTextBox>();
+                //GameManager.ToGame += delegate () { StartCoroutine(box.Gaming()); };
+                //GameManager.ToResult += delegate () { StartCoroutine(box.ReadyCommunicating()); };
+
+                //FlatUIBoxManager ma =FindAnyObjectByType<FlatUIBoxManager>();
+                //GameManager.ToGame += delegate () { StartCoroutine(ma.Hide()); };
+                //GameManager.ToResult += delegate () { StartCoroutine(ma.Show()); };
+                
+                //GameManager.ChangeState(STATE.GAMEOVER);
                 break;
             default:
                 break;

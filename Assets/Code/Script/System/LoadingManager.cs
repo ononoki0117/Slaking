@@ -23,15 +23,17 @@ public class LoadingManager : Singleton<LoadingManager>
         if (nextScene == sceneName)
         {
             Debug.Log("Loading Manager : Stay in Currnet Scene");
-            try
-            {
-                GameManager.UpdateState(state);
-                Debug.Log("Loading Mananger : Update State");
-            }
-            catch (System.Exception)
-            {
-                Debug.Log("Loading Manager : No Event exist");
-            }
+            //try
+            //{
+            //    GameManager.UpdateState(state);
+            //    Debug.Log("Loading Mananger : Update State");
+            //}
+            //catch (System.Exception e)
+            //{
+            //    Debug.Log(e.Message);
+            //    Debug.Log("Loading Manager : No Event exist");
+            //}
+            GameManager.UpdateState(state);
             return;
         }
         try
@@ -96,8 +98,8 @@ public class LoadingManager : Singleton<LoadingManager>
 
     IEnumerator LoadScene()
     {
-        LoadStart();
-        yield return new WaitUntil(LoadingCircle.IsActive);
+        //LoadStart();
+        //yield return new WaitUntil(LoadingCircle.IsActive);
         yield return new WaitForSeconds(1f);
 
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
@@ -117,7 +119,7 @@ public class LoadingManager : Singleton<LoadingManager>
             }
             else
             {
-                LoadFinish();
+                //LoadFinish();
                 //yield return new WaitForSeconds(2f);
                 op.allowSceneActivation = true;
                 GameManager.IsStateChanged = true;

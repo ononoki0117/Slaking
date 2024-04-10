@@ -8,20 +8,20 @@ using UnityEngine.UI;
 public class MusicSelectBoxControl : MonoBehaviour
 {
     private Image[] images;
+
+    private Button button;
     private void Awake()
     {
+
+        button = GetComponent<Button>();
+        button.interactable = false;
         images = GetComponentsInChildren<Image>();
         foreach(Image image in images)
         {
             image.color = new Color(1, 1, 1, 0);
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         GameManager.ToGame += delegate () { gameObject.SetActive(false); };
-    }
-
-    private void Start()
-    {
-        //StartCoroutine(Blink());
     }
 
     public IEnumerator Blink()
@@ -30,13 +30,15 @@ public class MusicSelectBoxControl : MonoBehaviour
         yield return FadeIn();
         yield return new WaitForSeconds(2f);
         yield return FadeOut();
-        yield return new WaitForEndOfFrame();
+        //yield return new WaitForEndOfFrame();
+        Debug.Log("Music Select box");
         GameManager.ChangeState(STATE.GAME);
     }
 
     IEnumerator FadeIn()
     {
-        
+        yield return new WaitForSeconds(2f);
+
         while (images.Last().color.a < 1)
         {
             float timer = Time.deltaTime * 6;

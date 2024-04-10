@@ -28,6 +28,8 @@ public class AudioManager : Singleton<AudioManager>
     private string notice;
     [SerializeField]
     private string confirm;
+    [SerializeField]
+    private string call;
 
     private void Awake()
     {
@@ -56,7 +58,7 @@ public class AudioManager : Singleton<AudioManager>
         FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", click), FMOD.MODE.CREATESAMPLE, out sfxs[1]);
         FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", notice), FMOD.MODE.CREATESAMPLE, out sfxs[2]);
         FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", confirm), FMOD.MODE.CREATESAMPLE, out sfxs[3]);
-
+        FMODUnity.RuntimeManager.CoreSystem.createSound(Path.Combine(Application.streamingAssetsPath, "Effect", call), FMOD.MODE.CREATESAMPLE, out sfxs[4]);
         for (int i = 0; i < count; i++)
         {
             sfxChannels[i].setChannelGroup(sfxChannelGroup);
@@ -89,4 +91,5 @@ public enum SFX
     Click,
     Notice,
     Confirm,
+    Call,
 }

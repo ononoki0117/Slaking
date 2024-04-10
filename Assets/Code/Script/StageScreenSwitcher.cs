@@ -51,7 +51,6 @@ public class StageScreenSwitcher : MonoBehaviour
         GameManager.ToWearing += delegate () { StartCoroutine(ChangeTexture(ImageTexture)); };
         GameManager.ToTutorial += delegate () { StartCoroutine(FadeIn()); };
         GameManager.ToSelectMusic += delegate () { StartCoroutine(FadeIn()); };
-        //GameManager.ToGame += delegate () { StartCoroutine(ChangeTexture(VideoTexture, GameVideoClip)); };
         GameManager.ToCommunication += delegate () { StartCoroutine(ChangeTexture(WebcamTexture)); };
         GameManager.ToResult += delegate () { StartCoroutine(FadeIn()); };
         GameManager.ToRequestEncore += delegate () { StartCoroutine(ChangeTexture(WebcamTexture)); };
@@ -59,26 +58,29 @@ public class StageScreenSwitcher : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        while(BlackScreen.color.a < 0.999)
-        {
-            BlackScreen.color = new Color(0, 0, 0, BlackScreen.color.a + Time.deltaTime);
-            yield return null;
-        }
+        //while(BlackScreen.color.a < 0.999)
+        //{
+        //    BlackScreen.color = new Color(0, 0, 0, BlackScreen.color.a + Time.deltaTime);
+        //    yield return null;
+        //}
+        BlackScreen.color = new Color(0, 0, 0, 1);
         yield break;
     }
 
     IEnumerator FadeOut()
     {
-        while (BlackScreen.color.a > 0.001)
-        {
-            BlackScreen.color = new Color(0, 0, 0, BlackScreen.color.a - Time.deltaTime);
-            yield return null;
-        }
+        //while (BlackScreen.color.a > 0.001)
+        //{
+        //    BlackScreen.color = new Color(0, 0, 0, BlackScreen.color.a - Time.deltaTime);
+        //    yield return null;
+        //}
+        BlackScreen.color = new Color(0, 0, 0, 0);
         yield break;
     }
 
     public IEnumerator ChangeTexture(Texture texture, VideoClip clip = null, bool isWebcam = false)
     {
+        MusicManager.Instance.musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         yield return FadeIn();
         
         TargetImage.texture = texture;
@@ -113,18 +115,6 @@ public class StageScreenSwitcher : MonoBehaviour
         }
 
         yield break;
-    }
-
-    IEnumerator Wait4Encore()
-    {
-        yield return null;
-
-        float timer = 0;
-
-        while(timer < 10f)
-        {
-
-        }
     }
 
 }

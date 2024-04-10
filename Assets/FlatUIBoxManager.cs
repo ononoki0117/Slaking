@@ -16,7 +16,7 @@ public class FlatUIBoxManager : MonoBehaviour
         GameManager.ToRequestEncore += delegate() { StartCoroutine(Hide()); };
     }
 
-    IEnumerator Hide()
+    public IEnumerator Hide()
     {
         while (BoxImage.color.a > 0.001)
         {
@@ -25,7 +25,7 @@ public class FlatUIBoxManager : MonoBehaviour
         }
     }
 
-    IEnumerator Show()
+    public IEnumerator Show()
     {
         while (BoxImage.color.a <= 0.999)
         {

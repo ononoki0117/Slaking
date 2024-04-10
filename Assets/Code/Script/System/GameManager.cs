@@ -13,6 +13,8 @@ public class GameManager : Singleton<GameManager>
     public SCENE current_scene;
     public static bool IsStateChanged = false;
 
+    public static bool HadEncore = false;
+    public static bool AcceptEncore = false;
     #region event
     public delegate void StateUpdate();
     public static event StateUpdate ToTitle;
@@ -101,7 +103,7 @@ public class GameManager : Singleton<GameManager>
             case STATE.WEARING: ToWearing(); break;
             case STATE.TUTORIAL: ToTutorial(); break;
             case STATE.SELECT_MUSIC: ToSelectMusic(); break;
-            case STATE.GAME: ToGame(); break;
+            case STATE.GAME: Debug.Log("Game"); ToGame();break;
             case STATE.COMMUNICATION: ToCommunication(); break;
             case STATE.RESULT: ToResult(); break;
             case STATE.REQUEST_ENCORE: ToRequestEncore(); break;

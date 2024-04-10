@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class LoadingCircle : MonoBehaviour
 {
     public static bool Active = false;
-    public static bool IsActive() => Active;
+    public static bool IsActive() { return Active; }
     private Image Image;
     private void Awake()
     {
         Image = GetComponent<Image>();
-        Image.color = new Color(1, 1, 1, 0);
+        Image.color = new Color(1, 1, 1, 1);
         Active = false;
         LoadingManager.LoadStart += delegate () { StartCoroutine(FadeIn()); };
         LoadingManager.LoadFinish += delegate () { StartCoroutine(FadeOut()); };
-        GameManager.ToGame += delegate () { StartCoroutine(FadeOut()); };
+        //GameManager.ToGame += delegate () { StartCoroutine(FadeOut()); };
     }
     void Update()
     {

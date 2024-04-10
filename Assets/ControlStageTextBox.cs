@@ -18,17 +18,24 @@ public class ControlStageTextBox : MonoBehaviour
     [SerializeField] private Image textBox;
     [SerializeField] private StageScreenSwitcher switcher;
 
+    [SerializeField][TextArea] private string RequsetEncoreText;
+    [SerializeField] private TextMeshProUGUI EncoreRemainSecond;
+
     private bool VideoEnded = false;
 
     private void Awake()
     {
         TargetText.color = new Color(TargetText.color.r, TargetText.color.g, TargetText.color.b, 0);
 
-        GameManager.ToWearing += delegate () { StartCoroutine(ChangeText(wearing)); };
+        GameManager.ToWearing += delegate () { StartCoroutine(ChangeText(wearing));
+            EncoreRemainSecond.color = new Color(1, 1, 1, 0);
+        };
         GameManager.ToTutorial += delegate () { StartCoroutine(ChangeTutorialTexts(tutorialFront, tutorialBack)); };
         GameManager.ToSelectMusic += delegate () { StartCoroutine(ClearAll()); };
         GameManager.ToGame += delegate () { StartCoroutine(Gaming()); };
         GameManager.ToResult += delegate () { StartCoroutine(ReadyCommunicating()); };
+        GameManager.ToRequestEncore += delegate () { StartCoroutine(Wait4AcceptEncoreRequest()); };
+        
     }
 
     IEnumerator ChangeText(string text)
@@ -101,6 +108,43 @@ public class ControlStageTextBox : MonoBehaviour
         }
         yield return ChangeText(communication);
         yield return ButtonControl.ShowButton(enterCommunication);
+    }
+
+    public IEnumerator Wait4AcceptEncoreRequest()
+    {
+        
+        while (textBox.color.a <= 0.999)
+        {
+            textBox.color = new Color(textBox.color.r, textBox.color.g, textBox.color.b, textBox.color.a + Time.deltaTime);
+            yield return null;
+        }
+
+        yield return ChangeText(RequsetEncoreText);
+
+
+        //while (EncoreRemainSecond.color.a <= 0.999)
+        //{
+        //    EncoreRemainSecond.color = new Color(1, 1, 1, EncoreRemainSecond.color.a + Time.deltaTime);
+        //    yield return null;
+        //}
+
+        //float timer = 10;
+
+        //while(timer >= 0 && !GameManager.AcceptEncore)
+        //{
+        //    timer -= Time.deltaTime;
+        //    EncoreRemainSecond.text = "" + (int)timer;
+        //    yield return null;
+        //}
+
+        //if (!GameManager.AcceptEncore)
+        //{
+        //    GameManager.ChangeState(STATE.GAMEOVER);
+        //}
+
+        yield return new WaitForSeconds(20f);
+        GameManager.ChangeState(STATE.GAMEOVER);
+        yield return null;
     }
 
     public IEnumerator ClearAll()

@@ -7,6 +7,18 @@ public class ShakeBlade : MonoBehaviour
     public Animator animator;
 
 
+    private void Awake()
+    {
+        BladeController.MessageEvent += delegate () { Shake(); };
+    }
+
+    private void Shake()
+    {
+        //AudioManager.Instance.PlaySFX(SFX.Call);
+        animator.Play("Shake pink", -1, 0);
+        animator.Play("Shake blue", -1, 0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +29,13 @@ public class ShakeBlade : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        // 응원봉 입력 시
-        if(Input.GetKeyDown(KeyCode.S))
-        {
-            animator.Play("Shake pink", -1, 0);
-            animator.Play("Shake blue", -1, 0);
-        }
-    }
+    //void Update()
+    //{
+    //    // 응원봉 입력 시
+    //    if(Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        animator.Play("Shake pink", -1, 0);
+    //        animator.Play("Shake blue", -1, 0);
+    //    }
+    //}
 }

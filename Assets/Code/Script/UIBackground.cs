@@ -13,7 +13,7 @@ public class UIBackground : MonoBehaviour
         GameManager.ToGame += delegate () { StartCoroutine(FadeOut()); };
     }
 
-    IEnumerator FadeOut()
+    public IEnumerator FadeOut()
     {
         while(background.color.a > 0.001)
         {

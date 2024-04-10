@@ -10,29 +10,29 @@ public class Activator : MonoBehaviour
     
     private void Awake()
     {
-        GameManager.ToWearing += delegate () { avatar.SetActive(true); };
-        GameManager.ToWearing += delegate () { ShowXRController(true); };
+        //GameManager.ToWearing += delegate () { avatar.SetActive(true); };
+        //GameManager.ToWearing += delegate () { ShowXRController(true); };
 
-        GameManager.ToTutorial += delegate () { avatar.SetActive(false); };
-        GameManager.ToTutorial += delegate () { ShowXRController(true); };
+        //GameManager.ToTutorial += delegate () { avatar.SetActive(false); };
+        //GameManager.ToTutorial += delegate () { ShowXRController(true); };
 
-        GameManager.ToSelectMusic += delegate () { avatar.SetActive(false); };
-        GameManager.ToSelectMusic += delegate () { ShowXRController(true); };
+        //GameManager.ToSelectMusic += delegate () { avatar.SetActive(false); };
+        //GameManager.ToSelectMusic += delegate () { ShowXRController(true); };
 
-        GameManager.ToGame += delegate () { avatar.SetActive(true); };
-        GameManager.ToGame += delegate () { ShowXRController(false); };
+        //GameManager.ToGame += delegate () { avatar.SetActive(true); };
+        //GameManager.ToGame += delegate () { ShowXRController(false); };
 
-        GameManager.ToCommunication += delegate () { avatar.SetActive(true); };
-        GameManager.ToCommunication += delegate () { ShowXRController(false); };
+        //GameManager.ToCommunication += delegate () { avatar.SetActive(true); };
+        //GameManager.ToCommunication += delegate () { ShowXRController(false); };
 
-        GameManager.ToResult += delegate () { avatar.SetActive(false); };
-        GameManager.ToResult += delegate () { ShowXRController(true); };
+        //GameManager.ToResult += delegate () { avatar.SetActive(true); };
+        //GameManager.ToResult += delegate () { ShowXRController(true); };
 
-        GameManager.ToRequestEncore += delegate () { avatar.SetActive(false); };
-        GameManager.ToRequestEncore += delegate () { ShowXRController(true); };
+        //GameManager.ToRequestEncore += delegate () { avatar.SetActive(true); };
+        //GameManager.ToRequestEncore += delegate () { ShowXRController(true); };
 
-        GameManager.ToGameOver += delegate () { avatar.SetActive(false); };
-        GameManager.ToGameOver += delegate () { ShowXRController(true); };
+        //GameManager.ToGameOver += delegate () { avatar.SetActive(true); };
+        //GameManager.ToGameOver += delegate () { ShowXRController(true); };
     }
     private void Start()
     {
