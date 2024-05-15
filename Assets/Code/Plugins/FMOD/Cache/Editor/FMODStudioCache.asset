@@ -73,12 +73,13 @@ MonoBehaviour:
   - {fileID: 7914942040904931160}
   - {fileID: -2144517852632438789}
   - {fileID: -3794388582820376608}
+  - {fileID: 3064629326392950139}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4278577883927410538}
   StringsBanks:
   - {fileID: 1007053895149618171}
-  cacheTime: 638482752293644960
+  cacheTime: 638484276964823118
   cacheVersion: 131616
 --- !u!114 &1007053895149618171
 MonoBehaviour:
@@ -95,11 +96,38 @@ MonoBehaviour:
   Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638482752293644960
+  lastModified: 638484276964823118
   FileSizes:
   - Name: Desktop
-    Value: 876
+    Value: 938
   Exists: 1
+--- !u!114 &3064629326392950139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Star_song_short_ofv
+  m_EditorClassIdentifier: 
+  Path: event:/Star_song_short_ofv
+  Guid:
+    Data1: 1473306015
+    Data2: 1277201360
+    Data3: 1132250041
+    Data4: 305576087
+  Banks:
+  - {fileID: 4278577883927410538}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 112274
 --- !u!114 &4278577883927410538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +143,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638482752293634927
+  lastModified: 638484276964823118
   FileSizes:
   - Name: Desktop
-    Value: 2470880
+    Value: 3892576
   Exists: 1
 --- !u!114 &7914942040904931160
 MonoBehaviour:
