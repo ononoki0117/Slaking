@@ -307,8 +307,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../SoregaZenbu_Movement/SoregaZenbu_Movement.fspro
-  sourceBankPath: ../SoregaZenbu_Movement/Build
+  sourceProjectPath: ../../FMOD Studio/FmodVid/SoregaZenbu_Movement.fspro
+  sourceBankPath: ../../FMOD Studio/FmodVid/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
