@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7571420647140216388
+--- !u!114 &-4770345871547201052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,18 +9,133 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Star_song_short_ofv
   m_EditorClassIdentifier: 
-  Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638484276964823118
-  FileSizes:
-  - Name: Desktop
-    Value: 938
-  Exists: 1
---- !u!114 &-5038799096997123501
+  Path: event:/Star_song_short_ofv
+  Guid:
+    Data1: 1473306015
+    Data2: 1277201360
+    Data3: 1132250041
+    Data4: 305576087
+  Banks:
+  - {fileID: 4818577950891796187}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 112274
+--- !u!114 &-535414333381727438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sorega_Zenbu_main
+  m_EditorClassIdentifier: 
+  Path: event:/Sorega_Zenbu_main
+  Guid:
+    Data1: 331982314
+    Data2: 1241372767
+    Data3: 235929524
+    Data4: -1877447652
+  Banks:
+  - {fileID: 4818577950891796187}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 107040
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 8020157739515572021}
+  - {fileID: 4818577950891796187}
+  EditorEvents:
+  - {fileID: 1929794456061361710}
+  - {fileID: 1603865220307673153}
+  - {fileID: -4770345871547201052}
+  - {fileID: -535414333381727438}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 4818577950891796187}
+  StringsBanks:
+  - {fileID: 8020157739515572021}
+  cacheTime: 638484276964823118
+  cacheVersion: 131616
+--- !u!114 &1603865220307673153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial_Event
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial_Event
+  Guid:
+    Data1: 151127157
+    Data2: 1162238274
+    Data3: 1367542414
+    Data4: -1824492447
+  Banks:
+  - {fileID: 4818577950891796187}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 103368
+--- !u!114 &1929794456061361710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sorega_Zenbu_5sec_Bound
+  m_EditorClassIdentifier: 
+  Path: event:/Sorega_Zenbu_5sec_Bound
+  Guid:
+    Data1: 518942032
+    Data2: 1085030809
+    Data3: 1317937083
+    Data4: -1664214840
+  Banks:
+  - {fileID: 4818577950891796187}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 107040
+--- !u!114 &4818577950891796187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +155,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 3892576
   Exists: 1
---- !u!114 &-4211626591644144404
+--- !u!114 &8020157739515572021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,129 +164,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Star_song_short_ofv
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: event:/Star_song_short_ofv
-  Guid:
-    Data1: 1473306015
-    Data2: 1277201360
-    Data3: 1132250041
-    Data4: 305576087
-  Banks:
-  - {fileID: -5038799096997123501}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 112274
---- !u!114 &-2832011763400183379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sorega_Zenbu_5sec_Bound
-  m_EditorClassIdentifier: 
-  Path: event:/Sorega_Zenbu_5sec_Bound
-  Guid:
-    Data1: 518942032
-    Data2: 1085030809
-    Data3: 1317937083
-    Data4: -1664214840
-  Banks:
-  - {fileID: -5038799096997123501}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 107040
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: -7571420647140216388}
-  - {fileID: -5038799096997123501}
-  EditorEvents:
-  - {fileID: -2832011763400183379}
-  - {fileID: 4943168669643513273}
-  - {fileID: -4211626591644144404}
-  - {fileID: 3114145927691454296}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: -5038799096997123501}
-  StringsBanks:
-  - {fileID: -7571420647140216388}
-  cacheTime: 638484276964823118
-  cacheVersion: 131616
---- !u!114 &3114145927691454296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Sorega_Zenbu_main
-  m_EditorClassIdentifier: 
-  Path: event:/Sorega_Zenbu_main
-  Guid:
-    Data1: 331982314
-    Data2: 1241372767
-    Data3: 235929524
-    Data4: -1877447652
-  Banks:
-  - {fileID: -5038799096997123501}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 107040
---- !u!114 &4943168669643513273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tutorial_Event
-  m_EditorClassIdentifier: 
-  Path: event:/Tutorial_Event
-  Guid:
-    Data1: 151127157
-    Data2: 1162238274
-    Data3: 1367542414
-    Data4: -1824492447
-  Banks:
-  - {fileID: -5038799096997123501}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 103368
+  Path: ../../FMOD Studio/FmodVid/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638484276964823118
+  FileSizes:
+  - Name: Desktop
+    Value: 938
+  Exists: 1
