@@ -9,6 +9,7 @@ public class ControlStageTextBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TargetText;
 
     [SerializeField][TextArea] private string wearing;
+    [SerializeField][TextArea] private string skip;
     [SerializeField][TextArea] private string[] tutorialFront;
     [SerializeField][TextArea] private string tutorialBack;
     [SerializeField][TextArea] private string communication;
@@ -30,6 +31,7 @@ public class ControlStageTextBox : MonoBehaviour
         GameManager.ToWearing += delegate () { StartCoroutine(ChangeText(wearing));
             EncoreRemainSecond.color = new Color(1, 1, 1, 0);
         };
+        GameManager.ToSkip += delegate () { StartCoroutine(ChangeText(skip)); };
         GameManager.ToTutorial += delegate () { StartCoroutine(ChangeTutorialTexts(tutorialFront, tutorialBack)); };
         GameManager.ToSelectMusic += delegate () { StartCoroutine(ClearAll()); };
         GameManager.ToGame += delegate () { StartCoroutine(Gaming()); };

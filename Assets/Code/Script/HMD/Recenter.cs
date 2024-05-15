@@ -44,7 +44,7 @@ public class Recenter : MonoBehaviour
 
                 yield return new WaitForSeconds(2f);
 
-                GameManager.ChangeState(STATE.TUTORIAL);
+                GameManager.ChangeState(STATE.SKIP);
 
                 yield break;
             }

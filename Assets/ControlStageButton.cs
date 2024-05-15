@@ -25,6 +25,7 @@ public class ControlStageButton : MonoBehaviour
         TargetImage.color = new Color(TargetImage.color.r, TargetImage.color.g, TargetImage.color.b, 0);
 
         GameManager.ToWearing += delegate () { StartCoroutine(ShowButton(ReadyText)); AudioManager.Instance.PlaySFX(SFX.Notice); };
+        GameManager.ToSkip += delegate () { StartCoroutine(HideButton()); };
         GameManager.ToTutorial += delegate () { StartCoroutine(HideButton()); };
         //GameManager.ToRequestEncore += delegate () { StartCoroutine(ShowButton(RequestText)); };
     }

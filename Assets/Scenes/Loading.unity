@@ -227,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 4583254321141497305, guid: 634cd6c49df94439c9513ecd1b50d5d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1011,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1954721455
 RectTransform:
   m_ObjectHideFlags: 0
