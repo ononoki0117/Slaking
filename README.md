@@ -10,7 +10,7 @@ Slaking은 단순히 영상을 재생하는 전시물이 아니라, 관객의 �
 
 ## 시연 영상
 
-[![Slaking 시연 영상](http://img.youtube.com/vi/Of74VGpOiYA/0.jpg)]
+[![Slaking 시연 영상](http://img.youtube.com/vi/Of74VGpOiYA/0.jpg)](https://www.youtube.com/watch?v=Of74VGpOiYA)
 
 ## 주요 기능
 
